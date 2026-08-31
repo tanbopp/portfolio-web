@@ -1,7 +1,4 @@
+# Exclude legacy Laravel backup from the Vercel build
+/legacy-laravel
 /node_modules
-/vendor
-/.git
-/.tw-patch
-/storage
-.env
-*.log
+/.next
