@@ -1,6 +1,7 @@
 import { randomUUID } from "node:crypto";
 import { NextResponse } from "next/server";
-import { supabase, STORAGE_BUCKET } from "@/lib/supabase";
+import { STORAGE_BUCKET } from "@/lib/supabase";
+import { supabaseAdmin } from "@/lib/supabase-admin";
 import { isAdmin } from "@/lib/auth";
 
 export async function POST(req: Request) {
@@ -18,7 +19,7 @@ export async function POST(req: Request) {
   const path = `${randomUUID()}.${ext}`;
   const buf = Buffer.from(await file.arrayBuffer());
 
-  const { error } = await supabase.storage
+  const { error } = await supabaseAdmin.storage
     .from(STORAGE_BUCKET)
     .upload(path, buf, { contentType: file.type || "application/octet-stream" });
 
