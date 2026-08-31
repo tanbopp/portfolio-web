@@ -1,0 +1,2142 @@
+[
+  {
+    "original": "shadow-[0px_0px_1px_0px_rgba(0,0,0,0.03),0px_1px_2px_0px_rgba(0,0,0,0.06)]",
+    "mangled": "tw-a",
+    "usedBy": []
+  },
+  {
+    "original": "shadow-[inset_0px_0px_0px_1px_rgba(26,26,0,0.16)]",
+    "mangled": "tw-b",
+    "usedBy": []
+  },
+  {
+    "original": "dark:shadow-[inset_0px_0px_0px_1px_#fffaed2d]",
+    "mangled": "tw-c",
+    "usedBy": []
+  },
+  {
+    "original": "motion-safe:starting:-translate-x-[102px]",
+    "mangled": "tw-d",
+    "usedBy": []
+  },
+  {
+    "original": "motion-safe:starting:-translate-x-[26px]",
+    "mangled": "tw-e",
+    "usedBy": []
+  },
+  {
+    "original": "motion-safe:starting:-translate-x-[51px]",
+    "mangled": "tw-f",
+    "usedBy": []
+  },
+  {
+    "original": "motion-safe:starting:-translate-x-[78px]",
+    "mangled": "tw-g",
+    "usedBy": []
+  },
+  {
+    "original": "ease-[cubic-bezier(0.22,1,0.36,1)]",
+    "mangled": "tw-h",
+    "usedBy": []
+  },
+  {
+    "original": "motion-safe:starting:translate-y-6",
+    "mangled": "tw-i",
+    "usedBy": []
+  },
+  {
+    "original": "dark:[--stroke-color:#FF750F]",
+    "mangled": "tw-j",
+    "usedBy": []
+  },
+  {
+    "original": "dark:before:border-[#3E3E3A]",
+    "mangled": "tw-k",
+    "usedBy": []
+  },
+  {
+    "original": "dark:hover:border-[#3E3E3A]",
+    "mangled": "tw-l",
+    "usedBy": []
+  },
+  {
+    "original": "dark:hover:border-[#62605b]",
+    "mangled": "tw-m",
+    "usedBy": []
+  },
+  {
+    "original": "dark:mix-blend-hard-light",
+    "mangled": "tw-n",
+    "usedBy": []
+  },
+  {
+    "original": "hover:file:bg-neutral-700",
+    "mangled": "tw-o",
+    "usedBy": []
+  },
+  {
+    "original": "[--stroke-color:#1B1B18]",
+    "mangled": "tw-p",
+    "usedBy": []
+  },
+  {
+    "original": "focus:border-neutral-500",
+    "mangled": "tw-q",
+    "usedBy": [
+      "C:/code/tanbbopp.my.id/resources/js/admin.js"
+    ]
+  },
+  {
+    "original": "hover:border-[#19140035]",
+    "mangled": "tw-r",
+    "usedBy": []
+  },
+  {
+    "original": "hover:border-[#1915014a]",
+    "mangled": "tw-s",
+    "usedBy": []
+  },
+  {
+    "original": "md:grid-cols-[240px_1fr]",
+    "mangled": "tw-t",
+    "usedBy": []
+  },
+  {
+    "original": "before:border-[#e3e3e0]",
+    "mangled": "tw-u",
+    "usedBy": []
+  },
+  {
+    "original": "dark:hover:border-white",
+    "mangled": "tw-v",
+    "usedBy": []
+  },
+  {
+    "original": "hover:bg-neutral-900/40",
+    "mangled": "tw-w",
+    "usedBy": []
+  },
+  {
+    "original": "hover:text-neutral-300",
+    "mangled": "tw-x",
+    "usedBy": []
+  },
+  {
+    "original": "border-neutral-500/50",
+    "mangled": "tw-y",
+    "usedBy": []
+  },
+  {
+    "original": "border-neutral-800/80",
+    "mangled": "tw-z",
+    "usedBy": []
+  },
+  {
+    "original": "dark:border-[#3E3E3A]",
+    "mangled": "tw-aa",
+    "usedBy": []
+  },
+  {
+    "original": "dark:border-[#eeeeec]",
+    "mangled": "tw-ba",
+    "usedBy": []
+  },
+  {
+    "original": "dark:mix-blend-normal",
+    "mangled": "tw-ca",
+    "usedBy": []
+  },
+  {
+    "original": "file:text-neutral-200",
+    "mangled": "tw-da",
+    "usedBy": []
+  },
+  {
+    "original": "group-hover:opacity-0",
+    "mangled": "tw-ea",
+    "usedBy": []
+  },
+  {
+    "original": "will-change-transform",
+    "mangled": "tw-fa",
+    "usedBy": []
+  },
+  {
+    "original": "before:left-[0.4rem]",
+    "mangled": "tw-ga",
+    "usedBy": []
+  },
+  {
+    "original": "hover:bg-neutral-900",
+    "mangled": "tw-ha",
+    "usedBy": []
+  },
+  {
+    "original": "justify-items-center",
+    "mangled": "tw-ia",
+    "usedBy": []
+  },
+  {
+    "original": "mix-blend-hard-light",
+    "mangled": "tw-ja",
+    "usedBy": []
+  },
+  {
+    "original": "not-has-[nav]:hidden",
+    "mangled": "tw-ka",
+    "usedBy": []
+  },
+  {
+    "original": "transition-transform",
+    "mangled": "tw-la",
+    "usedBy": []
+  },
+  {
+    "original": "dark:hover:bg-white",
+    "mangled": "tw-ma",
+    "usedBy": []
+  },
+  {
+    "original": "dark:text-[#1C1C1A]",
+    "mangled": "tw-na",
+    "usedBy": []
+  },
+  {
+    "original": "dark:text-[#391800]",
+    "mangled": "tw-oa",
+    "usedBy": []
+  },
+  {
+    "original": "dark:text-[#4B0600]",
+    "mangled": "tw-pa",
+    "usedBy": []
+  },
+  {
+    "original": "dark:text-[#733000]",
+    "mangled": "tw-qa",
+    "usedBy": []
+  },
+  {
+    "original": "dark:text-[#A1A09A]",
+    "mangled": "tw-ra",
+    "usedBy": []
+  },
+  {
+    "original": "dark:text-[#EDEDEC]",
+    "mangled": "tw-sa",
+    "usedBy": []
+  },
+  {
+    "original": "dark:text-[#F61500]",
+    "mangled": "tw-ta",
+    "usedBy": []
+  },
+  {
+    "original": "dark:text-[#FF4433]",
+    "mangled": "tw-ua",
+    "usedBy": []
+  },
+  {
+    "original": "file:bg-neutral-800",
+    "mangled": "tw-va",
+    "usedBy": []
+  },
+  {
+    "original": "pointer-events-none",
+    "mangled": "tw-wa",
+    "usedBy": []
+  },
+  {
+    "original": "text-neutral-100/40",
+    "mangled": "tw-xa",
+    "usedBy": []
+  },
+  {
+    "original": "text-neutral-100/70",
+    "mangled": "tw-ya",
+    "usedBy": []
+  },
+  {
+    "original": "text-neutral-200/90",
+    "mangled": "tw-za",
+    "usedBy": []
+  },
+  {
+    "original": "accent-emerald-600",
+    "mangled": "tw-ab",
+    "usedBy": []
+  },
+  {
+    "original": "border-[#19140035]",
+    "mangled": "tw-bb",
+    "usedBy": []
+  },
+  {
+    "original": "border-emerald-700",
+    "mangled": "tw-cb",
+    "usedBy": []
+  },
+  {
+    "original": "border-neutral-600",
+    "mangled": "tw-db",
+    "usedBy": []
+  },
+  {
+    "original": "border-neutral-700",
+    "mangled": "tw-eb",
+    "usedBy": [
+      "C:/code/tanbbopp.my.id/resources/js/admin.js"
+    ]
+  },
+  {
+    "original": "border-neutral-800",
+    "mangled": "tw-fb",
+    "usedBy": []
+  },
+  {
+    "original": "border-transparent",
+    "mangled": "tw-gb",
+    "usedBy": []
+  },
+  {
+    "original": "cursor-not-allowed",
+    "mangled": "tw-hb",
+    "usedBy": [
+      "C:/code/tanbbopp.my.id/resources/js/admin.js"
+    ]
+  },
+  {
+    "original": "divide-neutral-800",
+    "mangled": "tw-ib",
+    "usedBy": []
+  },
+  {
+    "original": "hover:border-black",
+    "mangled": "tw-jb",
+    "usedBy": []
+  },
+  {
+    "original": "hover:text-red-300",
+    "mangled": "tw-kb",
+    "usedBy": []
+  },
+  {
+    "original": "lg:rounded-br-none",
+    "mangled": "tw-lb",
+    "usedBy": []
+  },
+  {
+    "original": "mix-blend-multiply",
+    "mangled": "tw-mb",
+    "usedBy": []
+  },
+  {
+    "original": "starting:opacity-0",
+    "mangled": "tw-nb",
+    "usedBy": []
+  },
+  {
+    "original": "transition-opacity",
+    "mangled": "tw-ob",
+    "usedBy": []
+  },
+  {
+    "original": "underline-offset-4",
+    "mangled": "tw-pb",
+    "usedBy": []
+  },
+  {
+    "original": "before:bottom-1/2",
+    "mangled": "tw-qb",
+    "usedBy": []
+  },
+  {
+    "original": "bg-emerald-900/40",
+    "mangled": "tw-rb",
+    "usedBy": []
+  },
+  {
+    "original": "bg-emerald-900/50",
+    "mangled": "tw-sb",
+    "usedBy": []
+  },
+  {
+    "original": "bg-neutral-900/40",
+    "mangled": "tw-tb",
+    "usedBy": []
+  },
+  {
+    "original": "dark:bg-[#0a0a0a]",
+    "mangled": "tw-ub",
+    "usedBy": []
+  },
+  {
+    "original": "dark:bg-[#161615]",
+    "mangled": "tw-vb",
+    "usedBy": []
+  },
+  {
+    "original": "dark:bg-[#1D0002]",
+    "mangled": "tw-wb",
+    "usedBy": []
+  },
+  {
+    "original": "dark:bg-[#3E3E3A]",
+    "mangled": "tw-xb",
+    "usedBy": []
+  },
+  {
+    "original": "dark:bg-[#eeeeec]",
+    "mangled": "tw-yb",
+    "usedBy": []
+  },
+  {
+    "original": "lg:justify-center",
+    "mangled": "tw-zb",
+    "usedBy": []
+  },
+  {
+    "original": "lg:rounded-t-none",
+    "mangled": "tw-ac",
+    "usedBy": []
+  },
+  {
+    "original": "aspect-[335/364]",
+    "mangled": "tw-bc",
+    "usedBy": []
+  },
+  {
+    "original": "bg-gradient-to-b",
+    "mangled": "tw-cc",
+    "usedBy": []
+  },
+  {
+    "original": "bg-gradient-to-r",
+    "mangled": "tw-dc",
+    "usedBy": []
+  },
+  {
+    "original": "bg-gradient-to-t",
+    "mangled": "tw-ec",
+    "usedBy": []
+  },
+  {
+    "original": "border-[#e3e3e0]",
+    "mangled": "tw-fc",
+    "usedBy": []
+  },
+  {
+    "original": "duration-[700ms]",
+    "mangled": "tw-gc",
+    "usedBy": []
+  },
+  {
+    "original": "flex-col-reverse",
+    "mangled": "tw-hc",
+    "usedBy": []
+  },
+  {
+    "original": "from-transparent",
+    "mangled": "tw-ic",
+    "usedBy": []
+  },
+  {
+    "original": "hover:text-white",
+    "mangled": "tw-jc",
+    "usedBy": [
+      "C:/code/tanbbopp.my.id/resources/js/admin.js"
+    ]
+  },
+  {
+    "original": "lg:rounded-tl-lg",
+    "mangled": "tw-kc",
+    "usedBy": []
+  },
+  {
+    "original": "mix-blend-darken",
+    "mangled": "tw-lc",
+    "usedBy": []
+  },
+  {
+    "original": "text-emerald-200",
+    "mangled": "tw-mc",
+    "usedBy": []
+  },
+  {
+    "original": "text-emerald-300",
+    "mangled": "tw-nc",
+    "usedBy": []
+  },
+  {
+    "original": "text-neutral-200",
+    "mangled": "tw-oc",
+    "usedBy": [
+      "C:/code/tanbbopp.my.id/resources/js/admin.js"
+    ]
+  },
+  {
+    "original": "text-neutral-300",
+    "mangled": "tw-pc",
+    "usedBy": [
+      "C:/code/tanbbopp.my.id/resources/js/admin.js"
+    ]
+  },
+  {
+    "original": "text-neutral-400",
+    "mangled": "tw-qc",
+    "usedBy": [
+      "C:/code/tanbbopp.my.id/resources/js/admin.js"
+    ]
+  },
+  {
+    "original": "text-neutral-500",
+    "mangled": "tw-rc",
+    "usedBy": []
+  },
+  {
+    "original": "text-neutral-600",
+    "mangled": "tw-sc",
+    "usedBy": []
+  },
+  {
+    "original": "text-neutral-900",
+    "mangled": "tw-tc",
+    "usedBy": []
+  },
+  {
+    "original": "tracking-[-3.5%]",
+    "mangled": "tw-uc",
+    "usedBy": []
+  },
+  {
+    "original": "before:absolute",
+    "mangled": "tw-vc",
+    "usedBy": []
+  },
+  {
+    "original": "before:border-l",
+    "mangled": "tw-wc",
+    "usedBy": []
+  },
+  {
+    "original": "before:bottom-0",
+    "mangled": "tw-xc",
+    "usedBy": []
+  },
+  {
+    "original": "border-gray-200",
+    "mangled": "tw-yc",
+    "usedBy": []
+  },
+  {
+    "original": "border-gray-300",
+    "mangled": "tw-zc",
+    "usedBy": []
+  },
+  {
+    "original": "border-gray-400",
+    "mangled": "tw-ad",
+    "usedBy": []
+  },
+  {
+    "original": "dark:text-black",
+    "mangled": "tw-bd",
+    "usedBy": []
+  },
+  {
+    "original": "justify-between",
+    "mangled": "tw-cd",
+    "usedBy": []
+  },
+  {
+    "original": "leading-relaxed",
+    "mangled": "tw-dd",
+    "usedBy": []
+  },
+  {
+    "original": "lg:rounded-r-lg",
+    "mangled": "tw-ed",
+    "usedBy": []
+  },
+  {
+    "original": "mix-blend-color",
+    "mangled": "tw-fd",
+    "usedBy": []
+  },
+  {
+    "original": "overflow-hidden",
+    "mangled": "tw-gd",
+    "usedBy": [
+      "C:/code/tanbbopp.my.id/resources/js/admin.js"
+    ]
+  },
+  {
+    "original": "sm:items-center",
+    "mangled": "tw-hd",
+    "usedBy": []
+  },
+  {
+    "original": "tracking-normal",
+    "mangled": "tw-id",
+    "usedBy": []
+  },
+  {
+    "original": "tracking-widest",
+    "mangled": "tw-jd",
+    "usedBy": []
+  },
+  {
+    "original": "via-transparent",
+    "mangled": "tw-kd",
+    "usedBy": []
+  },
+  {
+    "original": "accent-red-600",
+    "mangled": "tw-ld",
+    "usedBy": []
+  },
+  {
+    "original": "before:top-1/2",
+    "mangled": "tw-md",
+    "usedBy": []
+  },
+  {
+    "original": "bg-neutral-500",
+    "mangled": "tw-nd",
+    "usedBy": []
+  },
+  {
+    "original": "bg-neutral-800",
+    "mangled": "tw-od",
+    "usedBy": []
+  },
+  {
+    "original": "bg-neutral-900",
+    "mangled": "tw-pd",
+    "usedBy": [
+      "C:/code/tanbbopp.my.id/resources/js/admin.js"
+    ]
+  },
+  {
+    "original": "bg-neutral-950",
+    "mangled": "tw-qd",
+    "usedBy": [
+      "C:/code/tanbbopp.my.id/resources/js/admin.js"
+    ]
+  },
+  {
+    "original": "border-[0.5px]",
+    "mangled": "tw-rd",
+    "usedBy": []
+  },
+  {
+    "original": "border-red-800",
+    "mangled": "tw-sd",
+    "usedBy": []
+  },
+  {
+    "original": "cursor-default",
+    "mangled": "tw-td",
+    "usedBy": []
+  },
+  {
+    "original": "cursor-pointer",
+    "mangled": "tw-ud",
+    "usedBy": []
+  },
+  {
+    "original": "hover:bg-black",
+    "mangled": "tw-vd",
+    "usedBy": []
+  },
+  {
+    "original": "justify-center",
+    "mangled": "tw-wd",
+    "usedBy": [
+      "C:/code/tanbbopp.my.id/resources/js/admin.js"
+    ]
+  },
+  {
+    "original": "leading-[105%]",
+    "mangled": "tw-xd",
+    "usedBy": []
+  },
+  {
+    "original": "leading-[110%]",
+    "mangled": "tw-yd",
+    "usedBy": []
+  },
+  {
+    "original": "leading-[130%]",
+    "mangled": "tw-zd",
+    "usedBy": []
+  },
+  {
+    "original": "leading-[20px]",
+    "mangled": "tw-ae",
+    "usedBy": []
+  },
+  {
+    "original": "leading-normal",
+    "mangled": "tw-be",
+    "usedBy": []
+  },
+  {
+    "original": "lg:aspect-auto",
+    "mangled": "tw-ce",
+    "usedBy": []
+  },
+  {
+    "original": "lg:grid-cols-4",
+    "mangled": "tw-de",
+    "usedBy": []
+  },
+  {
+    "original": "md:grid-cols-2",
+    "mangled": "tw-ee",
+    "usedBy": []
+  },
+  {
+    "original": "md:grid-cols-4",
+    "mangled": "tw-fe",
+    "usedBy": []
+  },
+  {
+    "original": "sm:grid-cols-2",
+    "mangled": "tw-ge",
+    "usedBy": []
+  },
+  {
+    "original": "sm:grid-cols-3",
+    "mangled": "tw-he",
+    "usedBy": []
+  },
+  {
+    "original": "text-[#1B1B18]",
+    "mangled": "tw-ie",
+    "usedBy": []
+  },
+  {
+    "original": "text-[#1b1b18]",
+    "mangled": "tw-je",
+    "usedBy": []
+  },
+  {
+    "original": "text-[#706f6c]",
+    "mangled": "tw-ke",
+    "usedBy": []
+  },
+  {
+    "original": "text-[#F3BEC7]",
+    "mangled": "tw-le",
+    "usedBy": []
+  },
+  {
+    "original": "text-[#F53003]",
+    "mangled": "tw-me",
+    "usedBy": []
+  },
+  {
+    "original": "text-[#F8B803]",
+    "mangled": "tw-ne",
+    "usedBy": []
+  },
+  {
+    "original": "text-[#f53003]",
+    "mangled": "tw-oe",
+    "usedBy": []
+  },
+  {
+    "original": "to-transparent",
+    "mangled": "tw-pe",
+    "usedBy": []
+  },
+  {
+    "original": "tracking-[-2%]",
+    "mangled": "tw-qe",
+    "usedBy": []
+  },
+  {
+    "original": "tracking-tight",
+    "mangled": "tw-re",
+    "usedBy": []
+  },
+  {
+    "original": "tracking-wider",
+    "mangled": "tw-se",
+    "usedBy": []
+  },
+  {
+    "original": "transition-all",
+    "mangled": "tw-te",
+    "usedBy": []
+  },
+  {
+    "original": "bg-red-900/40",
+    "mangled": "tw-ue",
+    "usedBy": []
+  },
+  {
+    "original": "border-dashed",
+    "mangled": "tw-ve",
+    "usedBy": []
+  },
+  {
+    "original": "file:border-0",
+    "mangled": "tw-we",
+    "usedBy": []
+  },
+  {
+    "original": "flex-shrink-0",
+    "mangled": "tw-xe",
+    "usedBy": []
+  },
+  {
+    "original": "font-semibold",
+    "mangled": "tw-ye",
+    "usedBy": []
+  },
+  {
+    "original": "from-black/70",
+    "mangled": "tw-ze",
+    "usedBy": []
+  },
+  {
+    "original": "from-black/85",
+    "mangled": "tw-af",
+    "usedBy": []
+  },
+  {
+    "original": "max-w-[335px]",
+    "mangled": "tw-bf",
+    "usedBy": []
+  },
+  {
+    "original": "md:col-span-2",
+    "mangled": "tw-cf",
+    "usedBy": []
+  },
+  {
+    "original": "min-h-[200vh]",
+    "mangled": "tw-df",
+    "usedBy": []
+  },
+  {
+    "original": "ring-gray-300",
+    "mangled": "tw-ef",
+    "usedBy": []
+  },
+  {
+    "original": "rounded-bl-lg",
+    "mangled": "tw-ff",
+    "usedBy": []
+  },
+  {
+    "original": "rounded-br-lg",
+    "mangled": "tw-gf",
+    "usedBy": []
+  },
+  {
+    "original": "text-gray-200",
+    "mangled": "tw-hf",
+    "usedBy": []
+  },
+  {
+    "original": "text-gray-300",
+    "mangled": "tw-if",
+    "usedBy": []
+  },
+  {
+    "original": "text-gray-400",
+    "mangled": "tw-jf",
+    "usedBy": []
+  },
+  {
+    "original": "text-gray-500",
+    "mangled": "tw-kf",
+    "usedBy": []
+  },
+  {
+    "original": "text-gray-600",
+    "mangled": "tw-lf",
+    "usedBy": []
+  },
+  {
+    "original": "text-gray-700",
+    "mangled": "tw-mf",
+    "usedBy": []
+  },
+  {
+    "original": "text-gray-800",
+    "mangled": "tw-nf",
+    "usedBy": []
+  },
+  {
+    "original": "text-gray-900",
+    "mangled": "tw-of",
+    "usedBy": []
+  },
+  {
+    "original": "tracking-wide",
+    "mangled": "tw-pf",
+    "usedBy": []
+  },
+  {
+    "original": "translate-y-0",
+    "mangled": "tw-qf",
+    "usedBy": []
+  },
+  {
+    "original": "-mt-[6.6rem]",
+    "mangled": "tw-rf",
+    "usedBy": []
+  },
+  {
+    "original": "aspect-[3/4]",
+    "mangled": "tw-sf",
+    "usedBy": []
+  },
+  {
+    "original": "aspect-video",
+    "mangled": "tw-tf",
+    "usedBy": []
+  },
+  {
+    "original": "before:top-0",
+    "mangled": "tw-uf",
+    "usedBy": []
+  },
+  {
+    "original": "bg-[#1b1b18]",
+    "mangled": "tw-vf",
+    "usedBy": []
+  },
+  {
+    "original": "bg-[#FDFDFC]",
+    "mangled": "tw-wf",
+    "usedBy": []
+  },
+  {
+    "original": "bg-[#dbdbd7]",
+    "mangled": "tw-xf",
+    "usedBy": []
+  },
+  {
+    "original": "bg-[#fff2f2]",
+    "mangled": "tw-yf",
+    "usedBy": []
+  },
+  {
+    "original": "border-black",
+    "mangled": "tw-zf",
+    "usedBy": []
+  },
+  {
+    "original": "duration-150",
+    "mangled": "tw-ag",
+    "usedBy": []
+  },
+  {
+    "original": "duration-300",
+    "mangled": "tw-bg",
+    "usedBy": []
+  },
+  {
+    "original": "duration-750",
+    "mangled": "tw-cg",
+    "usedBy": []
+  },
+  {
+    "original": "file:rounded",
+    "mangled": "tw-dg",
+    "usedBy": []
+  },
+  {
+    "original": "inline-block",
+    "mangled": "tw-eg",
+    "usedBy": []
+  },
+  {
+    "original": "items-center",
+    "mangled": "tw-fg",
+    "usedBy": [
+      "C:/code/tanbbopp.my.id/resources/js/admin.js"
+    ]
+  },
+  {
+    "original": "lg:max-w-4xl",
+    "mangled": "tw-gg",
+    "usedBy": []
+  },
+  {
+    "original": "lg:w-[438px]",
+    "mangled": "tw-hg",
+    "usedBy": []
+  },
+  {
+    "original": "md:w-[480px]",
+    "mangled": "tw-ig",
+    "usedBy": []
+  },
+  {
+    "original": "min-h-[55vh]",
+    "mangled": "tw-jg",
+    "usedBy": []
+  },
+  {
+    "original": "min-h-[70vh]",
+    "mangled": "tw-kg",
+    "usedBy": []
+  },
+  {
+    "original": "min-h-screen",
+    "mangled": "tw-lg",
+    "usedBy": []
+  },
+  {
+    "original": "object-cover",
+    "mangled": "tw-mg",
+    "usedBy": [
+      "C:/code/tanbbopp.my.id/resources/js/admin.js"
+    ]
+  },
+  {
+    "original": "outline-none",
+    "mangled": "tw-ng",
+    "usedBy": [
+      "C:/code/tanbbopp.my.id/resources/js/admin.js"
+    ]
+  },
+  {
+    "original": "rounded-full",
+    "mangled": "tw-og",
+    "usedBy": [
+      "C:/code/tanbbopp.my.id/resources/js/admin.js"
+    ]
+  },
+  {
+    "original": "rounded-l-md",
+    "mangled": "tw-pg",
+    "usedBy": []
+  },
+  {
+    "original": "rounded-r-md",
+    "mangled": "tw-qg",
+    "usedBy": []
+  },
+  {
+    "original": "rounded-t-lg",
+    "mangled": "tw-rg",
+    "usedBy": []
+  },
+  {
+    "original": "sm:text-base",
+    "mangled": "tw-sg",
+    "usedBy": []
+  },
+  {
+    "original": "sm:w-[420px]",
+    "mangled": "tw-tg",
+    "usedBy": []
+  },
+  {
+    "original": "text-red-200",
+    "mangled": "tw-ug",
+    "usedBy": []
+  },
+  {
+    "original": "text-red-400",
+    "mangled": "tw-vg",
+    "usedBy": []
+  },
+  {
+    "original": "via-black/40",
+    "mangled": "tw-wg",
+    "usedBy": []
+  },
+  {
+    "original": "via-black/50",
+    "mangled": "tw-xg",
+    "usedBy": []
+  },
+  {
+    "original": "bg-gray-100",
+    "mangled": "tw-yg",
+    "usedBy": []
+  },
+  {
+    "original": "bg-gray-200",
+    "mangled": "tw-zg",
+    "usedBy": []
+  },
+  {
+    "original": "font-medium",
+    "mangled": "tw-ah",
+    "usedBy": []
+  },
+  {
+    "original": "grid-cols-1",
+    "mangled": "tw-bh",
+    "usedBy": []
+  },
+  {
+    "original": "grid-cols-2",
+    "mangled": "tw-ch",
+    "usedBy": []
+  },
+  {
+    "original": "inline-flex",
+    "mangled": "tw-dh",
+    "usedBy": [
+      "C:/code/tanbbopp.my.id/resources/js/admin.js"
+    ]
+  },
+  {
+    "original": "items-start",
+    "mangled": "tw-eh",
+    "usedBy": []
+  },
+  {
+    "original": "justify-end",
+    "mangled": "tw-fh",
+    "usedBy": []
+  },
+  {
+    "original": "lg:flex-row",
+    "mangled": "tw-gh",
+    "usedBy": []
+  },
+  {
+    "original": "list-inside",
+    "mangled": "tw-hh",
+    "usedBy": []
+  },
+  {
+    "original": "md:flex-row",
+    "mangled": "tw-ih",
+    "usedBy": []
+  },
+  {
+    "original": "md:text-6xl",
+    "mangled": "tw-jh",
+    "usedBy": []
+  },
+  {
+    "original": "md:text-7xl",
+    "mangled": "tw-kh",
+    "usedBy": []
+  },
+  {
+    "original": "opacity-100",
+    "mangled": "tw-lh",
+    "usedBy": []
+  },
+  {
+    "original": "sm:flex-row",
+    "mangled": "tw-mh",
+    "usedBy": [
+      "C:/code/tanbbopp.my.id/resources/js/admin.js"
+    ]
+  },
+  {
+    "original": "sm:gap-x-12",
+    "mangled": "tw-nh",
+    "usedBy": []
+  },
+  {
+    "original": "sm:text-2xl",
+    "mangled": "tw-oh",
+    "usedBy": []
+  },
+  {
+    "original": "sm:text-3xl",
+    "mangled": "tw-ph",
+    "usedBy": []
+  },
+  {
+    "original": "sm:text-4xl",
+    "mangled": "tw-qh",
+    "usedBy": []
+  },
+  {
+    "original": "sm:text-5xl",
+    "mangled": "tw-rh",
+    "usedBy": []
+  },
+  {
+    "original": "sm:text-6xl",
+    "mangled": "tw-sh",
+    "usedBy": []
+  },
+  {
+    "original": "sm:text-7xl",
+    "mangled": "tw-th",
+    "usedBy": []
+  },
+  {
+    "original": "text-[13px]",
+    "mangled": "tw-uh",
+    "usedBy": []
+  },
+  {
+    "original": "text-[18px]",
+    "mangled": "tw-vh",
+    "usedBy": []
+  },
+  {
+    "original": "text-[24px]",
+    "mangled": "tw-wh",
+    "usedBy": []
+  },
+  {
+    "original": "text-center",
+    "mangled": "tw-xh",
+    "usedBy": []
+  },
+  {
+    "original": "to-black/10",
+    "mangled": "tw-yh",
+    "usedBy": []
+  },
+  {
+    "original": "to-black/20",
+    "mangled": "tw-zh",
+    "usedBy": []
+  },
+  {
+    "original": "to-black/80",
+    "mangled": "tw-ai",
+    "usedBy": []
+  },
+  {
+    "original": "from-black",
+    "mangled": "tw-bi",
+    "usedBy": []
+  },
+  {
+    "original": "max-w-none",
+    "mangled": "tw-ci",
+    "usedBy": []
+  },
+  {
+    "original": "rounded-md",
+    "mangled": "tw-di",
+    "usedBy": [
+      "C:/code/tanbbopp.my.id/resources/js/admin.js"
+    ]
+  },
+  {
+    "original": "rounded-sm",
+    "mangled": "tw-ei",
+    "usedBy": []
+  },
+  {
+    "original": "rounded-xl",
+    "mangled": "tw-fi",
+    "usedBy": []
+  },
+  {
+    "original": "sm:text-lg",
+    "mangled": "tw-gi",
+    "usedBy": []
+  },
+  {
+    "original": "snap-start",
+    "mangled": "tw-hi",
+    "usedBy": []
+  },
+  {
+    "original": "text-black",
+    "mangled": "tw-ii",
+    "usedBy": []
+  },
+  {
+    "original": "text-right",
+    "mangled": "tw-ji",
+    "usedBy": []
+  },
+  {
+    "original": "text-white",
+    "mangled": "tw-ki",
+    "usedBy": [
+      "C:/code/tanbbopp.my.id/resources/js/admin.js"
+    ]
+  },
+  {
+    "original": "delay-200",
+    "mangled": "tw-li",
+    "usedBy": []
+  },
+  {
+    "original": "delay-300",
+    "mangled": "tw-mi",
+    "usedBy": []
+  },
+  {
+    "original": "delay-400",
+    "mangled": "tw-ni",
+    "usedBy": []
+  },
+  {
+    "original": "file:mr-3",
+    "mangled": "tw-oi",
+    "usedBy": []
+  },
+  {
+    "original": "file:px-4",
+    "mangled": "tw-pi",
+    "usedBy": []
+  },
+  {
+    "original": "file:py-2",
+    "mangled": "tw-qi",
+    "usedBy": []
+  },
+  {
+    "original": "flex-wrap",
+    "mangled": "tw-ri",
+    "usedBy": []
+  },
+  {
+    "original": "font-body",
+    "mangled": "tw-si",
+    "usedBy": []
+  },
+  {
+    "original": "font-thin",
+    "mangled": "tw-ti",
+    "usedBy": []
+  },
+  {
+    "original": "gap-x-2.5",
+    "mangled": "tw-ui",
+    "usedBy": []
+  },
+  {
+    "original": "h-[150px]",
+    "mangled": "tw-vi",
+    "usedBy": []
+  },
+  {
+    "original": "items-end",
+    "mangled": "tw-wi",
+    "usedBy": []
+  },
+  {
+    "original": "leading-5",
+    "mangled": "tw-xi",
+    "usedBy": []
+  },
+  {
+    "original": "leading-7",
+    "mangled": "tw-yi",
+    "usedBy": []
+  },
+  {
+    "original": "lg:-ml-px",
+    "mangled": "tw-zi",
+    "usedBy": []
+  },
+  {
+    "original": "list-disc",
+    "mangled": "tw-aj",
+    "usedBy": []
+  },
+  {
+    "original": "max-w-2xl",
+    "mangled": "tw-bj",
+    "usedBy": []
+  },
+  {
+    "original": "max-w-3xl",
+    "mangled": "tw-cj",
+    "usedBy": []
+  },
+  {
+    "original": "max-w-6xl",
+    "mangled": "tw-dj",
+    "usedBy": []
+  },
+  {
+    "original": "md:gap-16",
+    "mangled": "tw-ej",
+    "usedBy": []
+  },
+  {
+    "original": "shadow-sm",
+    "mangled": "tw-fj",
+    "usedBy": []
+  },
+  {
+    "original": "space-x-1",
+    "mangled": "tw-gj",
+    "usedBy": []
+  },
+  {
+    "original": "space-y-2",
+    "mangled": "tw-hj",
+    "usedBy": []
+  },
+  {
+    "original": "space-y-5",
+    "mangled": "tw-ij",
+    "usedBy": []
+  },
+  {
+    "original": "space-y-8",
+    "mangled": "tw-jj",
+    "usedBy": []
+  },
+  {
+    "original": "text-base",
+    "mangled": "tw-kj",
+    "usedBy": [
+      "C:/code/tanbbopp.my.id/resources/js/admin.js"
+    ]
+  },
+  {
+    "original": "text-left",
+    "mangled": "tw-lj",
+    "usedBy": []
+  },
+  {
+    "original": "w-[438px]",
+    "mangled": "tw-mj",
+    "usedBy": []
+  },
+  {
+    "original": "bg-black",
+    "mangled": "tw-nj",
+    "usedBy": []
+  },
+  {
+    "original": "bg-white",
+    "mangled": "tw-oj",
+    "usedBy": []
+  },
+  {
+    "original": "border-b",
+    "mangled": "tw-pj",
+    "usedBy": []
+  },
+  {
+    "original": "border-r",
+    "mangled": "tw-qj",
+    "usedBy": []
+  },
+  {
+    "original": "border-t",
+    "mangled": "tw-rj",
+    "usedBy": []
+  },
+  {
+    "original": "bottom-0",
+    "mangled": "tw-sj",
+    "usedBy": []
+  },
+  {
+    "original": "divide-y",
+    "mangled": "tw-tj",
+    "usedBy": []
+  },
+  {
+    "original": "flex-col",
+    "mangled": "tw-uj",
+    "usedBy": [
+      "C:/code/tanbbopp.my.id/resources/js/admin.js"
+    ]
+  },
+  {
+    "original": "gap-x-10",
+    "mangled": "tw-vj",
+    "usedBy": []
+  },
+  {
+    "original": "gap-x-12",
+    "mangled": "tw-wj",
+    "usedBy": []
+  },
+  {
+    "original": "h-[120%]",
+    "mangled": "tw-xj",
+    "usedBy": []
+  },
+  {
+    "original": "lg:block",
+    "mangled": "tw-yj",
+    "usedBy": []
+  },
+  {
+    "original": "lg:mt-10",
+    "mangled": "tw-zj",
+    "usedBy": []
+  },
+  {
+    "original": "lg:pb-10",
+    "mangled": "tw-ak",
+    "usedBy": []
+  },
+  {
+    "original": "max-w-sm",
+    "mangled": "tw-bk",
+    "usedBy": []
+  },
+  {
+    "original": "max-w-xl",
+    "mangled": "tw-ck",
+    "usedBy": []
+  },
+  {
+    "original": "md:gap-8",
+    "mangled": "tw-dk",
+    "usedBy": []
+  },
+  {
+    "original": "shrink-0",
+    "mangled": "tw-ek",
+    "usedBy": []
+  },
+  {
+    "original": "sm:mt-10",
+    "mangled": "tw-fk",
+    "usedBy": []
+  },
+  {
+    "original": "sm:mt-16",
+    "mangled": "tw-gk",
+    "usedBy": []
+  },
+  {
+    "original": "sm:mt-32",
+    "mangled": "tw-hk",
+    "usedBy": []
+  },
+  {
+    "original": "text-2xl",
+    "mangled": "tw-ik",
+    "usedBy": []
+  },
+  {
+    "original": "text-3xl",
+    "mangled": "tw-jk",
+    "usedBy": []
+  },
+  {
+    "original": "text-4xl",
+    "mangled": "tw-kk",
+    "usedBy": []
+  },
+  {
+    "original": "text-5xl",
+    "mangled": "tw-lk",
+    "usedBy": []
+  },
+  {
+    "original": "w-[80vw]",
+    "mangled": "tw-mk",
+    "usedBy": []
+  },
+  {
+    "original": "gap-y-8",
+    "mangled": "tw-nk",
+    "usedBy": []
+  },
+  {
+    "original": "inset-0",
+    "mangled": "tw-ok",
+    "usedBy": []
+  },
+  {
+    "original": "lg:grow",
+    "mangled": "tw-pk",
+    "usedBy": []
+  },
+  {
+    "original": "lg:mb-0",
+    "mangled": "tw-qk",
+    "usedBy": []
+  },
+  {
+    "original": "lg:mb-6",
+    "mangled": "tw-rk",
+    "usedBy": []
+  },
+  {
+    "original": "lg:ml-0",
+    "mangled": "tw-sk",
+    "usedBy": []
+  },
+  {
+    "original": "lg:p-20",
+    "mangled": "tw-tk",
+    "usedBy": []
+  },
+  {
+    "original": "mx-auto",
+    "mangled": "tw-uk",
+    "usedBy": []
+  },
+  {
+    "original": "right-0",
+    "mangled": "tw-vk",
+    "usedBy": []
+  },
+  {
+    "original": "sm:mb-3",
+    "mangled": "tw-wk",
+    "usedBy": []
+  },
+  {
+    "original": "text-lg",
+    "mangled": "tw-xk",
+    "usedBy": []
+  },
+  {
+    "original": "text-sm",
+    "mangled": "tw-yk",
+    "usedBy": [
+      "C:/code/tanbbopp.my.id/resources/js/admin.js"
+    ]
+  },
+  {
+    "original": "text-xl",
+    "mangled": "tw-zk",
+    "usedBy": []
+  },
+  {
+    "original": "text-xs",
+    "mangled": "tw-al",
+    "usedBy": [
+      "C:/code/tanbbopp.my.id/resources/js/admin.js"
+    ]
+  },
+  {
+    "original": "-mb-px",
+    "mangled": "tw-bl",
+    "usedBy": []
+  },
+  {
+    "original": "-ml-px",
+    "mangled": "tw-cl",
+    "usedBy": []
+  },
+  {
+    "original": "-mt-px",
+    "mangled": "tw-dl",
+    "usedBy": []
+  },
+  {
+    "original": "flex-1",
+    "mangled": "tw-el",
+    "usedBy": [
+      "C:/code/tanbbopp.my.id/resources/js/admin.js"
+    ]
+  },
+  {
+    "original": "gap-12",
+    "mangled": "tw-fl",
+    "usedBy": []
+  },
+  {
+    "original": "gap-16",
+    "mangled": "tw-gl",
+    "usedBy": []
+  },
+  {
+    "original": "h-14.5",
+    "mangled": "tw-hl",
+    "usedBy": []
+  },
+  {
+    "original": "h-full",
+    "mangled": "tw-il",
+    "usedBy": []
+  },
+  {
+    "original": "left-0",
+    "mangled": "tw-jl",
+    "usedBy": []
+  },
+  {
+    "original": "left-2",
+    "mangled": "tw-kl",
+    "usedBy": []
+  },
+  {
+    "original": "lg:p-8",
+    "mangled": "tw-ll",
+    "usedBy": []
+  },
+  {
+    "original": "px-1.5",
+    "mangled": "tw-ml",
+    "usedBy": []
+  },
+  {
+    "original": "py-0.5",
+    "mangled": "tw-nl",
+    "usedBy": []
+  },
+  {
+    "original": "py-1.5",
+    "mangled": "tw-ol",
+    "usedBy": []
+  },
+  {
+    "original": "py-2.5",
+    "mangled": "tw-pl",
+    "usedBy": [
+      "C:/code/tanbbopp.my.id/resources/js/admin.js"
+    ]
+  },
+  {
+    "original": "w-auto",
+    "mangled": "tw-ql",
+    "usedBy": []
+  },
+  {
+    "original": "w-full",
+    "mangled": "tw-rl",
+    "usedBy": [
+      "C:/code/tanbbopp.my.id/resources/js/admin.js"
+    ]
+  },
+  {
+    "original": "-ml-8",
+    "mangled": "tw-sl",
+    "usedBy": []
+  },
+  {
+    "original": "gap-2",
+    "mangled": "tw-tl",
+    "usedBy": [
+      "C:/code/tanbbopp.my.id/resources/js/admin.js"
+    ]
+  },
+  {
+    "original": "gap-3",
+    "mangled": "tw-ul",
+    "usedBy": []
+  },
+  {
+    "original": "gap-4",
+    "mangled": "tw-vl",
+    "usedBy": []
+  },
+  {
+    "original": "gap-5",
+    "mangled": "tw-wl",
+    "usedBy": []
+  },
+  {
+    "original": "gap-6",
+    "mangled": "tw-xl",
+    "usedBy": []
+  },
+  {
+    "original": "gap-8",
+    "mangled": "tw-yl",
+    "usedBy": []
+  },
+  {
+    "original": "h-1.5",
+    "mangled": "tw-zl",
+    "usedBy": []
+  },
+  {
+    "original": "h-2.5",
+    "mangled": "tw-am",
+    "usedBy": []
+  },
+  {
+    "original": "h-3.5",
+    "mangled": "tw-bm",
+    "usedBy": []
+  },
+  {
+    "original": "mb-12",
+    "mangled": "tw-cm",
+    "usedBy": []
+  },
+  {
+    "original": "mb-16",
+    "mangled": "tw-dm",
+    "usedBy": []
+  },
+  {
+    "original": "ml-12",
+    "mangled": "tw-em",
+    "usedBy": []
+  },
+  {
+    "original": "mt-10",
+    "mangled": "tw-fm",
+    "usedBy": []
+  },
+  {
+    "original": "mt-12",
+    "mangled": "tw-gm",
+    "usedBy": []
+  },
+  {
+    "original": "mt-24",
+    "mangled": "tw-hm",
+    "usedBy": []
+  },
+  {
+    "original": "pb-10",
+    "mangled": "tw-im",
+    "usedBy": []
+  },
+  {
+    "original": "pb-12",
+    "mangled": "tw-jm",
+    "usedBy": []
+  },
+  {
+    "original": "pb-20",
+    "mangled": "tw-km",
+    "usedBy": []
+  },
+  {
+    "original": "pt-10",
+    "mangled": "tw-lm",
+    "usedBy": []
+  },
+  {
+    "original": "pt-24",
+    "mangled": "tw-mm",
+    "usedBy": []
+  },
+  {
+    "original": "py-16",
+    "mangled": "tw-nm",
+    "usedBy": []
+  },
+  {
+    "original": "py-20",
+    "mangled": "tw-om",
+    "usedBy": []
+  },
+  {
+    "original": "top-0",
+    "mangled": "tw-pm",
+    "usedBy": []
+  },
+  {
+    "original": "top-2",
+    "mangled": "tw-qm",
+    "usedBy": [
+      "C:/code/tanbbopp.my.id/resources/js/admin.js"
+    ]
+  },
+  {
+    "original": "w-1.5",
+    "mangled": "tw-rm",
+    "usedBy": []
+  },
+  {
+    "original": "w-2.5",
+    "mangled": "tw-sm",
+    "usedBy": []
+  },
+  {
+    "original": "w-3.5",
+    "mangled": "tw-tm",
+    "usedBy": []
+  },
+  {
+    "original": "h-12",
+    "mangled": "tw-um",
+    "usedBy": []
+  },
+  {
+    "original": "h-14",
+    "mangled": "tw-vm",
+    "usedBy": []
+  },
+  {
+    "original": "h-16",
+    "mangled": "tw-wm",
+    "usedBy": []
+  },
+  {
+    "original": "h-28",
+    "mangled": "tw-xm",
+    "usedBy": [
+      "C:/code/tanbbopp.my.id/resources/js/admin.js"
+    ]
+  },
+  {
+    "original": "h-32",
+    "mangled": "tw-ym",
+    "usedBy": []
+  },
+  {
+    "original": "mb-1",
+    "mangled": "tw-zm",
+    "usedBy": []
+  },
+  {
+    "original": "mb-2",
+    "mangled": "tw-an",
+    "usedBy": []
+  },
+  {
+    "original": "mb-3",
+    "mangled": "tw-bn",
+    "usedBy": []
+  },
+  {
+    "original": "mb-4",
+    "mangled": "tw-cn",
+    "usedBy": []
+  },
+  {
+    "original": "mb-5",
+    "mangled": "tw-dn",
+    "usedBy": []
+  },
+  {
+    "original": "mb-6",
+    "mangled": "tw-en",
+    "usedBy": []
+  },
+  {
+    "original": "mb-8",
+    "mangled": "tw-fn",
+    "usedBy": []
+  },
+  {
+    "original": "ml-1",
+    "mangled": "tw-gn",
+    "usedBy": []
+  },
+  {
+    "original": "ml-2",
+    "mangled": "tw-hn",
+    "usedBy": []
+  },
+  {
+    "original": "ml-4",
+    "mangled": "tw-in",
+    "usedBy": []
+  },
+  {
+    "original": "mr-2",
+    "mangled": "tw-jn",
+    "usedBy": []
+  },
+  {
+    "original": "mt-1",
+    "mangled": "tw-kn",
+    "usedBy": []
+  },
+  {
+    "original": "mt-2",
+    "mangled": "tw-ln",
+    "usedBy": []
+  },
+  {
+    "original": "mt-3",
+    "mangled": "tw-mn",
+    "usedBy": []
+  },
+  {
+    "original": "mt-4",
+    "mangled": "tw-nn",
+    "usedBy": []
+  },
+  {
+    "original": "mt-5",
+    "mangled": "tw-on",
+    "usedBy": []
+  },
+  {
+    "original": "mt-6",
+    "mangled": "tw-pn",
+    "usedBy": []
+  },
+  {
+    "original": "mt-8",
+    "mangled": "tw-qn",
+    "usedBy": []
+  },
+  {
+    "original": "p-12",
+    "mangled": "tw-rn",
+    "usedBy": []
+  },
+  {
+    "original": "pb-6",
+    "mangled": "tw-sn",
+    "usedBy": []
+  },
+  {
+    "original": "pt-8",
+    "mangled": "tw-tn",
+    "usedBy": []
+  },
+  {
+    "original": "px-2",
+    "mangled": "tw-un",
+    "usedBy": [
+      "C:/code/tanbbopp.my.id/resources/js/admin.js"
+    ]
+  },
+  {
+    "original": "px-3",
+    "mangled": "tw-vn",
+    "usedBy": [
+      "C:/code/tanbbopp.my.id/resources/js/admin.js"
+    ]
+  },
+  {
+    "original": "px-4",
+    "mangled": "tw-wn",
+    "usedBy": []
+  },
+  {
+    "original": "px-5",
+    "mangled": "tw-xn",
+    "usedBy": []
+  },
+  {
+    "original": "px-6",
+    "mangled": "tw-yn",
+    "usedBy": []
+  },
+  {
+    "original": "px-8",
+    "mangled": "tw-zn",
+    "usedBy": []
+  },
+  {
+    "original": "py-1",
+    "mangled": "tw-ao",
+    "usedBy": [
+      "C:/code/tanbbopp.my.id/resources/js/admin.js"
+    ]
+  },
+  {
+    "original": "py-2",
+    "mangled": "tw-bo",
+    "usedBy": []
+  },
+  {
+    "original": "py-3",
+    "mangled": "tw-co",
+    "usedBy": []
+  },
+  {
+    "original": "py-4",
+    "mangled": "tw-do",
+    "usedBy": []
+  },
+  {
+    "original": "py-6",
+    "mangled": "tw-eo",
+    "usedBy": []
+  },
+  {
+    "original": "py-8",
+    "mangled": "tw-fo",
+    "usedBy": []
+  },
+  {
+    "original": "w-12",
+    "mangled": "tw-go",
+    "usedBy": []
+  },
+  {
+    "original": "w-48",
+    "mangled": "tw-ho",
+    "usedBy": []
+  },
+  {
+    "original": "z-10",
+    "mangled": "tw-io",
+    "usedBy": [
+      "C:/code/tanbbopp.my.id/resources/js/admin.js"
+    ]
+  },
+  {
+    "original": "z-50",
+    "mangled": "tw-jo",
+    "usedBy": []
+  },
+  {
+    "original": "h-1",
+    "mangled": "tw-ko",
+    "usedBy": []
+  },
+  {
+    "original": "h-2",
+    "mangled": "tw-lo",
+    "usedBy": []
+  },
+  {
+    "original": "h-3",
+    "mangled": "tw-mo",
+    "usedBy": []
+  },
+  {
+    "original": "h-4",
+    "mangled": "tw-no",
+    "usedBy": []
+  },
+  {
+    "original": "h-5",
+    "mangled": "tw-oo",
+    "usedBy": [
+      "C:/code/tanbbopp.my.id/resources/js/admin.js"
+    ]
+  },
+  {
+    "original": "h-8",
+    "mangled": "tw-po",
+    "usedBy": []
+  },
+  {
+    "original": "p-6",
+    "mangled": "tw-qo",
+    "usedBy": []
+  },
+  {
+    "original": "p-8",
+    "mangled": "tw-ro",
+    "usedBy": []
+  },
+  {
+    "original": "w-1",
+    "mangled": "tw-so",
+    "usedBy": []
+  },
+  {
+    "original": "w-2",
+    "mangled": "tw-to",
+    "usedBy": []
+  },
+  {
+    "original": "w-3",
+    "mangled": "tw-uo",
+    "usedBy": []
+  },
+  {
+    "original": "w-4",
+    "mangled": "tw-vo",
+    "usedBy": []
+  },
+  {
+    "original": "w-5",
+    "mangled": "tw-wo",
+    "usedBy": [
+      "C:/code/tanbbopp.my.id/resources/js/admin.js"
+    ]
+  },
+  {
+    "original": "w-8",
+    "mangled": "tw-xo",
+    "usedBy": []
+  }
+]
