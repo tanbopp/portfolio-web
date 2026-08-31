@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { supabaseAdmin } from "@/lib/supabase-admin";
+import { getSupabaseAdmin } from "@/lib/supabase-admin";
 import { isAdmin } from "@/lib/auth";
 
 function cleanSlug(slug: string, title: string): string {
@@ -30,7 +30,7 @@ export async function PUT(
     ? JSON.stringify(body.platform)
     : null;
 
-  const { data, error } = await supabaseAdmin
+  const { data, error } = await getSupabaseAdmin()
     .from("projects")
     .update({
       title: body.title,
@@ -68,7 +68,7 @@ export async function DELETE(
   }
 
   const { slug } = await params;
-  const { error } = await supabaseAdmin.from("projects").delete().eq("slug", slug);
+  const { error } = await getSupabaseAdmin().from("projects").delete().eq("slug", slug);
   if (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }

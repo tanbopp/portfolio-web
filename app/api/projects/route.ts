@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { supabaseAdmin } from "@/lib/supabase-admin";
+import { getSupabaseAdmin } from "@/lib/supabase-admin";
 import { isAdmin } from "@/lib/auth";
 
 function cleanSlug(slug: string, title: string): string {
@@ -26,7 +26,7 @@ export async function POST(req: Request) {
     ? JSON.stringify(body.platform)
     : null;
 
-  const { data, error } = await supabaseAdmin
+  const { data, error } = await getSupabaseAdmin()
     .from("projects")
     .insert({
       title: body.title,
