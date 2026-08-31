@@ -18,6 +18,8 @@
     "APP_PACKAGES_CACHE": "/tmp/packages.php",
     "APP_ROUTES_CACHE": "/tmp/routes.php",
     "APP_SERVICES_CACHE": "/tmp/services.php",
-    "VIEW_COMPILED_PATH": "/tmp/views"
+    "VIEW_COMPILED_PATH": "/tmp/views",
+    "LOG_CHANNEL": "stderr",
+    "LOG_LEVEL": "debug"
   }
 }
