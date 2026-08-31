@@ -31,3 +31,6 @@ next-env.d.ts
 
 # legacy laravel backup (kept for reference)
 /legacy-laravel
+
+# leftover laravel views (kept for reference, not part of the Next.js app)
+/resources
