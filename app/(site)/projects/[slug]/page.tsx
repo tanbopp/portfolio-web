@@ -35,7 +35,7 @@ export default async function ProjectPage({
             backgroundSize: "26px 26px",
           }}
         />
-        <Container className="relative pt-32 pb-16">
+        <Container className="relative pt-32 pb-16" data-aos="fade-up">
           <p className="mb-3 text-sm uppercase tracking-widest text-neutral-400">{label}</p>
           <h1 className="text-3xl font-semibold tracking-[-1.5%] sm:text-5xl">{project.title}</h1>
           {project.description && (
@@ -141,9 +141,9 @@ export default async function ProjectPage({
       {/* Showcase */}
       {project.showcase && (
         <section className="w-full bg-black py-8">
-          <Container>
+          <Container data-aos="fade-up">
             <div
-              className="wysiwyg-content max-w-3xl !text-white"
+              className="wysiwyg-content font-display max-w-3xl !text-white"
               dangerouslySetInnerHTML={{ __html: project.showcase }}
             />
           </Container>
@@ -184,10 +184,10 @@ export default async function ProjectPage({
       {/* Article */}
       {project.article && (
         <section className="w-full border-t border-neutral-800/80 py-8">
-          <Container>
+          <Container data-aos="fade-up">
             <SectionHeading className="mb-8 text-3xl sm:text-4xl">Article</SectionHeading>
             <div
-              className="wysiwyg-content max-w-3xl !text-white"
+              className="wysiwyg-content font-display max-w-3xl !text-white"
               dangerouslySetInnerHTML={{ __html: project.article }}
             />
           </Container>

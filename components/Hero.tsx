@@ -37,7 +37,7 @@ export default function Hero() {
       <div className="absolute z-10 w-full h-full bg-gradient-to-r from-black/70 via-transparent to-transparent" />
       <div className="absolute z-10 w-full h-[150px] bottom-0 bg-gradient-to-b from-transparent to-black/80" />
 
-      <div className="w-full max-w-6xl p-8 flex flex-col justify-center z-50">
+      <div className="w-full max-w-6xl p-8 flex flex-col justify-center z-50" data-aos="fade-up">
         <div className="py-20">
           <h1 className="text-4xl sm:text-7xl font-thin tracking-[-3.5%] mb-2 sm:mb-3">
             Sultan <br /> Rahmatulloh

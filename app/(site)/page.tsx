@@ -1,6 +1,7 @@
 import Hero from "@/components/Hero";
 import Container from "@/components/Container";
 import Stat from "@/components/Stat";
+import RevealText from "@/components/RevealText";
 import SectionHeading from "@/components/SectionHeading";
 import WorkItem from "@/components/WorkItem";
 import ProductPanel from "@/components/ProductPanel";
@@ -20,17 +21,17 @@ export default async function Home() {
       <section className="w-full py-20">
         <Container className="grid grid-cols-1 md:grid-cols-5 gap-16">
           <div className="col-span-3 flex flex-col sm:justify-between">
-            <p className="text-2xl sm:text-4xl max-w-2xl leading-[130%]">
-              I build AI automation and custom software that cut manual work and help businesses
-              run more efficiently—systems that solve real problems, not just look impressive.
-            </p>
+            <RevealText
+              text="I build AI automation and custom software that cut manual work and help businesses run more efficiently—systems that solve real problems, not just look impressive."
+              className="text-2xl sm:text-4xl max-w-2xl leading-[130%]"
+            />
             <div className="flex flex-wrap gap-x-10 sm:gap-x-12 gap-y-8 mt-12 sm:mt-16">
               <Stat value="3+" label="Years of experience" />
               <Stat value="4" label="Companies" />
               <Stat value={`${projects.length}+`} label="Projects" />
             </div>
           </div>
-          <div className="col-span-2">
+          <div className="col-span-2" data-aos="fade-left">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/images/tanbopp-photo.png" className="w-full grayscale" alt="Tanbopp" />
           </div>
@@ -38,7 +39,7 @@ export default async function Home() {
       </section>
 
       <section className="w-full bg-black py-20">
-        <Container>
+        <Container data-aos="fade-up">
           <SectionHeading className="text-4xl sm:text-5xl mb-16">Where I&apos;ve worked</SectionHeading>
 
           <WorkItem
@@ -70,7 +71,7 @@ export default async function Home() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/40 to-black/10" />
 
         <div className="relative z-10 w-full max-w-6xl mx-auto px-8 flex justify-end">
-          <div className="max-w-xl text-right">
+          <div className="max-w-xl text-right" data-aos="fade-left">
             <SectionHeading className="text-4xl sm:text-5xl md:text-6xl leading-[110%]">
               A system built for
               <br />
@@ -88,7 +89,7 @@ export default async function Home() {
 
       {/* Product Showcase */}
       <section className="w-full bg-black py-20">
-        <Container>
+        <Container data-aos="fade-up">
           <SectionHeading className="text-3xl sm:text-5xl leading-[130%] mb-12 max-w-xl">
             Producing chips for use on Earth and in space
           </SectionHeading>

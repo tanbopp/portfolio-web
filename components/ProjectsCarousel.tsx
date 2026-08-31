@@ -18,7 +18,7 @@ export default function ProjectsCarousel({ projects }: { projects: Project[] }) 
   return (
     <section id="projects" className="w-full bg-black py-20 overflow-hidden">
       <Container className="mb-12">
-        <div className="flex flex-wrap items-end justify-between gap-6">
+        <div className="flex flex-wrap items-end justify-between gap-6" data-aos="fade-up">
           <div>
             <SectionHeading className="text-3xl sm:text-5xl">Featured Work</SectionHeading>
           </div>
@@ -33,8 +33,8 @@ export default function ProjectsCarousel({ projects }: { projects: Project[] }) 
         <div
           ref={trackRef}
           style={{
-            paddingLeft: "max(2rem, calc((100vw - 72rem) / 2 + 1.5rem))",
-            paddingRight: "max(2rem, calc((100vw - 72rem) / 2 + 1.5rem))",
+            paddingLeft: "max(1rem, calc((100vw - 72rem) / 2 + 1.5rem))",
+            paddingRight: "max(1rem, calc((100vw - 72rem) / 2 + 1.5rem))",
           }}
           className="flex gap-6 overflow-x-auto scroll-smooth snap-x"
         >
