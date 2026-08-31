@@ -56,6 +56,20 @@ export async function PUT(
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 
+  // Replace gallery rows
+  if (data) {
+    await getSupabaseAdmin().from("project_galleries").delete().eq("project_id", data.id);
+    if (Array.isArray(body.gallery) && body.gallery.length) {
+      const rows = body.gallery.map((media: string, i: number) => ({
+        project_id: data.id,
+        media,
+        media_type: "image",
+        sort_order: i,
+      }));
+      await getSupabaseAdmin().from("project_galleries").insert(rows);
+    }
+  }
+
   return NextResponse.json({ project: data });
 }
 

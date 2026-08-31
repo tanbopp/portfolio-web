@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import RichEditor from "./RichEditor";
+import CkEditor from "./CkEditor";
 import ImagePicker from "./ImagePicker";
+import GalleryUploader, { type GalleryItem } from "./GalleryUploader";
 import type { Project } from "@/lib/types";
 
 interface Props {
@@ -41,6 +42,9 @@ export default function ProjectForm({ initial, isEdit = false }: Props) {
   const [article, setArticle] = useState(initial?.article ?? "");
   const [heroImage, setHeroImage] = useState<string | null>(initial?.hero_image ?? null);
   const [cardImage, setCardImage] = useState<string | null>(initial?.card_image ?? null);
+  const [gallery, setGallery] = useState<GalleryItem[]>(
+    initial?.galleries?.map((g) => ({ media: g.media, media_type: g.media_type })) ?? [],
+  );
   const [published, setPublished] = useState(initial?.published ?? true);
 
   function splitList(text: string): string[] {
@@ -73,6 +77,7 @@ export default function ProjectForm({ initial, isEdit = false }: Props) {
       article,
       hero_image: heroImage,
       card_image: cardImage,
+      gallery: gallery.map((g) => g.media),
       published,
     };
 
@@ -96,6 +101,12 @@ export default function ProjectForm({ initial, isEdit = false }: Props) {
 
   return (
     <form onSubmit={onSubmit} className="space-y-8">
+      {/* Hero image — full width, hero ratio (16:8) */}
+      <ImagePicker label="Gambar Hero (16:8)" value={heroImage} onChange={setHeroImage} aspect="aspect-[2/1]" />
+
+      {/* Card image — card ratio (16:9) */}
+      <ImagePicker label="Gambar Card (16:9)" value={cardImage} onChange={setCardImage} aspect="aspect-video" />
+
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div className="sm:col-span-2">
           <label className={labelCls}>Judul *</label>
@@ -145,19 +156,16 @@ export default function ProjectForm({ initial, isEdit = false }: Props) {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-        <ImagePicker label="Gambar Hero (16:8)" value={heroImage} onChange={setHeroImage} />
-        <ImagePicker label="Gambar Card (16:9)" value={cardImage} onChange={setCardImage} />
-      </div>
+      <GalleryUploader items={gallery} onChange={setGallery} />
 
       <div>
         <label className={labelCls}>Showcase</label>
-        <RichEditor value={showcase} onChange={setShowcase} />
+        <CkEditor value={showcase} onChange={setShowcase} />
       </div>
 
       <div>
         <label className={labelCls}>Article</label>
-        <RichEditor value={article} onChange={setArticle} />
+        <CkEditor value={article} onChange={setArticle} />
       </div>
 
       <label className="flex items-center gap-2 text-sm text-neutral-300">
