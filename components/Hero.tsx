@@ -12,7 +12,7 @@ export default function Hero() {
       cancelAnimationFrame(raf);
       raf = requestAnimationFrame(() => {
         if (bgRef.current) {
-          const y = window.scrollY * 0.35;
+          const y = window.scrollY * 0.5;
           bgRef.current.style.transform = `translate3d(0, ${y}px, 0)`;
         }
       });
