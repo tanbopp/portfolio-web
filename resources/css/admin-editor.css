@@ -1,0 +1,338 @@
+/* CKEditor 5 dark theme for the cPanel WYSIWYG (showcase + article).
+   Imported AFTER ckeditor5.css in admin.js so these overrides win. */
+
+.ck.ck-editor__editable {
+    background: #0a0a0a !important;
+    color: #ffffff !important;
+    font-family: 'D-DIN', 'Archivo', ui-sans-serif, system-ui, sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
+    min-height: 240px;
+}
+.ck.ck-editor__editable_inline {
+    border: 1px solid #262626 !important;
+    border-radius: 0.5rem;
+}
+.ck.ck-editor__editable.ck-focused {
+    border-color: #3b82f6 !important;
+    box-shadow: 0 0 0 1px #3b82f6;
+}
+.ck.ck-editor__editable h1 {
+    margin: 1.75em 0 0.5em;
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+.ck.ck-editor__editable h2 {
+    margin: 1.5em 0 0.5em;
+    font-size: 1.75rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+.ck.ck-editor__editable h3 {
+    margin: 1.25em 0 0.5em;
+    font-size: 1.375rem;
+    font-weight: 600;
+}
+.ck.ck-editor__editable h4 {
+    margin: 1em 0 0.5em;
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+.ck.ck-editor__editable p {
+    margin: 0 0 1em;
+    color: rgb(163 163 163);
+}
+.ck.ck-editor__editable ul {
+    margin: 0 0 1em;
+    padding-left: 1.25rem;
+    list-style: disc;
+}
+.ck.ck-editor__editable ol {
+    margin: 0 0 1em;
+    padding-left: 1.25rem;
+    list-style: decimal;
+}
+.ck.ck-editor__editable li {
+    margin-bottom: 0.25rem;
+    color: rgb(163 163 163);
+}
+.ck.ck-editor__editable a {
+    color: #ffffff;
+    text-decoration: underline;
+}
+.ck.ck-editor__editable blockquote {
+    margin: 0 0 1em;
+    border-left: 2px solid rgb(163 163 163 / 0.4);
+    padding-left: 1rem;
+    font-style: italic;
+    color: rgb(163 163 163);
+}
+.ck.ck-editor__editable code {
+    border-radius: 0.25rem;
+    background: rgb(255 255 255 / 0.1);
+    padding: 0.1em 0.3em;
+    font-size: 0.9em;
+}
+.ck.ck-editor__editable pre {
+    margin: 0 0 1em;
+    overflow-x: auto;
+    border-radius: 0.5rem;
+    background: #111111;
+    padding: 1rem;
+}
+.ck.ck-editor__editable pre code {
+    background: transparent;
+    padding: 0;
+}
+.ck.ck-editor__editable a {
+    color: #60a5fa;
+}
+.ck.ck-editor__editable blockquote {
+    border-left: 3px solid #404040;
+    color: #a3a3a3;
+    font-style: italic;
+}
+.ck.ck-editor__editable code,
+.ck.ck-editor__editable pre {
+    background: #1a1a1a;
+    color: #ffffff;
+}
+.ck.ck-editor__editable pre {
+    padding: 0.75rem 1rem;
+    border-radius: 0.375rem;
+}
+
+/* Balloon / floating toolbar */
+.ck.ck-balloon-panel {
+    background: #171717 !important;
+    border: 1px solid #404040 !important;
+    box-shadow: 0 10px 30px rgb(0 0 0 / 0.5);
+}
+.ck.ck-toolbar {
+    background: #171717 !important;
+    border: none !important;
+}
+.ck.ck-button {
+    color: #e5e5e5 !important;
+}
+.ck.ck-button:hover,
+.ck.ck-button.ck-on {
+    background: #262626 !important;
+    color: #ffffff !important;
+}
+.ck.ck-button .ck-button__label {
+    color: inherit;
+}
+
+/* Table */
+.ck.ck-editor__editable .table table td,
+.ck.ck-editor__editable .table table th {
+    border: 1px solid #3a3a3a;
+    padding: 6px 10px;
+    color: #e5e5e5;
+}
+.ck.ck-editor__editable .table table th {
+    background: #1f1f1f;
+    font-weight: 600;
+}
+
+/* Image caption (themed + rounded placeholder) */
+.ck.ck-editor__editable figure.image figcaption {
+    color: #a3a3a3;
+    background: rgb(255 255 255 / 0.04);
+    border-radius: 0.5rem;
+    margin-top: 0.25rem;
+    padding: 0.4rem 0.75rem;
+    text-align: center;
+}
+.ck.ck-editor__editable figure.image figcaption::before {
+    content: attr(data-placeholder);
+    color: #525252;
+}
+
+/* Horizontal line */
+.ck.ck-editor__editable hr.ck-horizontal-line {
+    border-top: 1px solid #404040;
+}
+
+/* Carousel inside the editor (real Swiper) */
+.ck-content .swiper-carousel {
+    position: relative;
+    margin: 0 0 1.5em;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    border: 1px solid #262626;
+    background: #111111;
+}
+.ck-content .swiper-carousel .swiper {
+    overflow: hidden;
+    position: relative;
+}
+.ck-content .swiper-carousel .swiper .swiper-slide {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    position: relative;
+}
+.ck-content .swiper-carousel .swiper .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    background: #111111;
+}
+.ck-content .swiper-carousel .swiper .swiper-button-next,
+.ck-content .swiper-carousel .swiper .swiper-button-prev {
+    width: 40px;
+    height: 40px;
+    margin-top: -20px;
+    border-radius: 50%;
+    background: rgb(0 0 0 / 0.55);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s ease;
+}
+.ck-content .swiper-carousel .swiper .swiper-button-next:hover,
+.ck-content .swiper-carousel .swiper .swiper-button-prev:hover {
+    background: rgb(0 0 0 / 0.75);
+}
+.ck-content .swiper-carousel .swiper .swiper-button-next::after,
+.ck-content .swiper-carousel .swiper .swiper-button-prev::after {
+    content: '❮';
+    font-size: 18px;
+    font-family: inherit;
+    font-weight: 700;
+    color: #ffffff;
+}
+.ck-content .swiper-carousel .swiper .swiper-button-next::after {
+    content: '❯';
+}
+.ck-content .swiper-carousel .swiper .swiper-pagination-bullet {
+    background: #ffffff;
+    opacity: 0.5;
+}
+.ck-content .swiper-carousel .swiper .swiper-pagination-bullet-active {
+    opacity: 1;
+}
+
+/* Carousel caption (themed + rounded) */
+.ck-content .swiper-carousel .carousel-caption {
+    margin: 0.25rem 0.75rem 0.75rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    background: rgb(255 255 255 / 0.04);
+    font-size: 0.875rem;
+    color: #a3a3a3;
+    text-align: center;
+    outline: none;
+    min-height: 1.5em;
+}
+.ck-content .swiper-carousel .carousel-caption:empty::before,
+.ck-content .swiper-carousel .carousel-caption:focus::before {
+    content: attr(data-placeholder);
+    color: #525252;
+}
+
+/* Add / remove photo controls */
+.carousel-add-btn {
+    position: absolute;
+    left: 50%;
+    bottom: 0.5rem;
+    transform: translateX(-50%);
+    z-index: 10;
+    padding: 0.4rem 0.9rem;
+    border: none;
+    border-radius: 999px;
+    background: rgb(59 130 246 / 0.9);
+    color: #ffffff;
+    font-size: 0.8rem;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgb(0 0 0 / 0.4);
+}
+.carousel-del-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    z-index: 10;
+    width: 26px;
+    height: 26px;
+    border: none;
+    border-radius: 50%;
+    background: rgb(220 38 38 / 0.9);
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ---------- Command palette (Ctrl+/) ---------- */
+.ck-command-menu {
+    position: fixed;
+    z-index: 3000;
+    width: 240px;
+    max-height: 320px;
+    overflow: auto;
+    background: #171717;
+    border: 1px solid #404040;
+    border-radius: 0.5rem;
+    padding: 0.25rem;
+    box-shadow: 0 10px 30px rgb(0 0 0 / 0.5);
+}
+.ck-command-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+    text-align: left;
+    background: transparent;
+    border: none;
+    color: #e5e5e5;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+.ck-command-item:hover {
+    background: #262626;
+}
+.ck-command-hint {
+    font-size: 0.75rem;
+    color: #737373;
+}
+
+/* Toast */
+#ck-toast {
+    position: fixed;
+    left: 50%;
+    bottom: 1.5rem;
+    transform: translate(-50%, 1rem);
+    z-index: 2000;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    color: #ffffff;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    background: #262626;
+    border: 1px solid #404040;
+    box-shadow: 0 10px 30px rgb(0 0 0 / 0.5);
+}
+#ck-toast.show {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+#ck-toast.success {
+    border-color: #22c55e;
+}
+#ck-toast.error {
+    background: #7f1d1d;
+    border-color: #ef4444;
+}
