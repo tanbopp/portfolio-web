@@ -11,6 +11,64 @@
 @import 'material-symbols/outlined.css';
 @import 'tailwindcss';
 
+/* ---- D-DIN (self-hosted webfonts) ---- */
+@font-face {
+  font-family: 'D-DIN';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/d-din/D-DIN.otf') format('opentype');
+}
+@font-face {
+  font-family: 'D-DIN';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/d-din/D-DIN-Bold.otf') format('opentype');
+}
+@font-face {
+  font-family: 'D-DIN';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/d-din/D-DIN-Italic.otf') format('opentype');
+}
+@font-face {
+  font-family: 'D-DIN Condensed';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/d-din/D-DINCondensed.otf') format('opentype');
+}
+@font-face {
+  font-family: 'D-DIN Condensed';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/d-din/D-DINCondensed-Bold.otf') format('opentype');
+}
+@font-face {
+  font-family: 'D-DIN Expanded';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/d-din/D-DINExp.otf') format('opentype');
+}
+@font-face {
+  font-family: 'D-DIN Expanded';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/d-din/D-DINExp-Bold.otf') format('opentype');
+}
+@font-face {
+  font-family: 'D-DIN Expanded';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/d-din/D-DINExp-Italic.otf') format('opentype');
+}
+
 @theme {
   --font-body: 'Manrope', ui-sans-serif, system-ui, sans-serif;
   --font-display: 'D-DIN', 'Archivo', ui-sans-serif, system-ui, sans-serif;
@@ -90,6 +148,9 @@ body {
 }
 
 /* ---- WYSIWYG content ---- */
+.wysiwyg-content {
+  font-family: 'D-DIN', ui-sans-serif, system-ui, sans-serif;
+}
 .wysiwyg-content h1,
 .wysiwyg-content h2,
 .wysiwyg-content h3 {
