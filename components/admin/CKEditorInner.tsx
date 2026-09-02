@@ -96,9 +96,11 @@ export default function CKEditorInner({
           "|",
           "imageUpload",
         ],
+        removePlugins: ["WidgetTypeAround"],
         table: { contentToolbar: ["tableColumn", "tableRow", "mergeTableCells"] },
         image: {
-          toolbar: ["imageStyle:alignLeft", "imageStyle:alignRight", "|", "imageTextAlternative"],
+          // No alignment / position controls — images are always full-width blocks.
+          toolbar: ["toggleImageCaption", "imageTextAlternative"],
         },
         heading: {
           options: [

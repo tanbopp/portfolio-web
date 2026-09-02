@@ -125,9 +125,24 @@ body {
   font-style: italic;
   margin: 0 0 1rem;
 }
+.wysiwyg-content figure.image,
 .wysiwyg-content img {
+  display: block;
+  width: 100%;
+}
+.wysiwyg-content figure.image {
+  margin: 1.5rem 0;
+}
+.wysiwyg-content img {
+  height: auto;
+  max-height: 816px;
+  object-fit: cover;
+  object-position: center;
   border-radius: 0.375rem;
-  margin: 1rem 0;
+  margin: 1.5rem 0;
+}
+.wysiwyg-content figure.image img {
+  margin: 0;
 }
 .wysiwyg-content table {
   width: 100%;
@@ -148,6 +163,19 @@ body {
   color: rgb(115 115 115);
   font-size: 0.875rem;
   margin-top: 0.5rem;
+}
+
+/* Readable centered text column; media (images) spans the full width */
+.wysiwyg-content > p,
+.wysiwyg-content > h1,
+.wysiwyg-content > h2,
+.wysiwyg-content > h3,
+.wysiwyg-content > ul,
+.wysiwyg-content > ol,
+.wysiwyg-content > blockquote {
+  max-width: 46rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* ---- CKEditor (admin) dark theme, matching the site ---- */
@@ -258,4 +286,23 @@ body {
 .admin-ckeditor .ck.ck-editor__editable ol {
   padding-left: 1.5rem;
   color: rgb(212 212 212);
+}
+
+/* Full-width cover images in the editor preview, matching the public page */
+.admin-ckeditor .ck.ck-editor__editable figure.image,
+.admin-ckeditor .ck.ck-editor__editable figure {
+  margin: 1rem 0;
+}
+.admin-ckeditor .ck.ck-editor__editable img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 816px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 0.375rem;
+}
+.admin-ckeditor .ck.ck-editor__editable figure.image img {
+  width: 100%;
+  max-height: 816px;
 }
