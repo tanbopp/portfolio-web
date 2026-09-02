@@ -243,6 +243,11 @@ body {
   border-color: #2e2e2e;
 }
 
+/* Hide the widget "insert paragraph before/after block" type-around buttons */
+.admin-ckeditor .ck.ck-editor__editable .ck-widget__type-around {
+  display: none;
+}
+
 /* Toolbar + panels sit on the dark surface with subtle borders */
 .admin-ckeditor .ck.ck-toolbar {
   background: #0a0a0a;
