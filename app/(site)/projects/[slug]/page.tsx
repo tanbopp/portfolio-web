@@ -143,7 +143,7 @@ export default async function ProjectPage({
         <section className="w-full bg-black py-8">
           <Container data-aos="fade-up">
             <div
-              className="wysiwyg-content font-display max-w-3xl !text-white"
+              className="wysiwyg-content max-w-3xl"
               dangerouslySetInnerHTML={{ __html: project.showcase }}
             />
           </Container>
@@ -187,7 +187,7 @@ export default async function ProjectPage({
           <Container data-aos="fade-up">
             <SectionHeading className="mb-8 text-3xl sm:text-4xl">Article</SectionHeading>
             <div
-              className="wysiwyg-content font-display max-w-3xl !text-white"
+              className="wysiwyg-content max-w-3xl"
               dangerouslySetInnerHTML={{ __html: project.article }}
             />
           </Container>
