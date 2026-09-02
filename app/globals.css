@@ -130,21 +130,61 @@ body {
   background-color: var(--btn-secondary-bg-hover);
 }
 
-/* ---- Navbar ---- */
-#site-nav-bg {
+/* ---- Navbar: layered frosted glass (Terafab-style) ---- */
+#site-nav {
+  --nav-blur: 26px;
+  --nav-bg: 0.9;
+  --nav-fade: 0;
+  --nav-rgb: 8, 8, 8;
+}
+.nav-frost {
+  position: absolute;
+  z-index: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: clamp(124px, 17vh, 172px);
+  pointer-events: none;
+  opacity: var(--nav-fade);
+  transition: opacity 700ms ease;
+}
+.nav-frost-band {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.7) 45%, rgba(0, 0, 0, 0.18) 72%, rgba(0, 0, 0, 0) 100%);
-  -webkit-backdrop-filter: blur(14px);
-  backdrop-filter: blur(14px);
-  -webkit-mask-image: linear-gradient(to bottom, black 0%, rgba(0, 0, 0, 0.9) 40%, transparent 100%);
-  mask-image: linear-gradient(to bottom, black 0%, rgba(0, 0, 0, 0.9) 40%, transparent 100%);
-  opacity: 0;
-  transition: opacity 900ms ease;
+  -webkit-backdrop-filter: blur(var(--band-blur)) saturate(calc(1 + var(--nav-bg) * 0.18));
+  backdrop-filter: blur(var(--band-blur)) saturate(calc(1 + var(--nav-bg) * 0.18));
+  background: linear-gradient(
+    180deg,
+    rgba(var(--nav-rgb), calc(var(--nav-bg) * var(--band-tint))) 0%,
+    rgba(var(--nav-rgb), 0) 100%
+  );
+  -webkit-mask-image: var(--band-mask);
+  mask-image: var(--band-mask);
 }
-#site-nav.is-scrolled #site-nav-bg {
-  opacity: 1;
+/* Stronger blur at the top, easing off downward — stacked bands */
+.nav-frost-band--1 {
+  --band-blur: calc(var(--nav-blur) * 1.12);
+  --band-tint: 0.62;
+  --band-mask: linear-gradient(180deg, #000 0%, #000 20%, rgba(0, 0, 0, 0.55) 38%, transparent 58%);
+}
+.nav-frost-band--2 {
+  --band-blur: calc(var(--nav-blur) * 0.68);
+  --band-tint: 0.42;
+  --band-mask: linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0.88) 26%, rgba(0, 0, 0, 0.35) 52%, transparent 74%);
+}
+.nav-frost-band--3 {
+  --band-blur: calc(var(--nav-blur) * 0.38);
+  --band-tint: 0.24;
+  --band-mask: linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0.72) 34%, rgba(0, 0, 0, 0.22) 62%, transparent 88%);
+}
+.nav-frost-band--4 {
+  --band-blur: calc(var(--nav-blur) * 0.14);
+  --band-tint: 0.1;
+  --band-mask: linear-gradient(180deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.45) 42%, transparent 100%);
+}
+#site-nav.is-scrolled {
+  --nav-fade: 1;
 }
 
 /* ---- WYSIWYG content ---- */
