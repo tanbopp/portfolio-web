@@ -26,7 +26,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="bg-neutral-800 tracking-tight w-full py-8 flex justify-center items-center relative overflow-hidden">
+    <section id="hero" className="bg-neutral-800 tracking-tight w-full py-8 flex justify-center items-center relative overflow-hidden">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         ref={bgRef}
