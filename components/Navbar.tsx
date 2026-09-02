@@ -36,7 +36,7 @@ export default function Navbar() {
   return (
     <nav id="site-nav" className="fixed top-0 left-0 right-0 z-[1000]">
       <div id="site-nav-bg" className="pointer-events-none absolute inset-0" />
-      <div className="relative mx-auto flex w-full max-w-6xl items-center justify-between px-4 pt-5 pb-10 sm:px-8">
+      <div className="relative mx-auto flex w-full max-w-6xl items-center justify-between px-4 pt-5 pb-12 sm:px-8">
         <Link href="/" aria-label="Tanbopp — home" className="flex items-center">
           {/* Desktop: full wordmark logo */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
