@@ -90,6 +90,9 @@ body {
 }
 
 /* ---- WYSIWYG content ---- */
+.wysiwyg-content {
+  font-family: var(--font-display);
+}
 .wysiwyg-content h1,
 .wysiwyg-content h2,
 .wysiwyg-content h3 {

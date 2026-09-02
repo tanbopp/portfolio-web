@@ -11,6 +11,7 @@ import { TableRow } from "@tiptap/extension-table-row";
 import { TableCell } from "@tiptap/extension-table-cell";
 import { TableHeader } from "@tiptap/extension-table-header";
 import Placeholder from "@tiptap/extension-placeholder";
+import TextAlign from "@tiptap/extension-text-align";
 import { VideoBlock } from "./VideoNode";
 import { CarouselBlock } from "./CarouselNode";
 import "./tiptap-editor.css";
@@ -49,6 +50,7 @@ export default function TipTapEditor({
       TableCell,
       VideoBlock,
       CarouselBlock,
+      TextAlign.configure({ types: ["heading", "paragraph"] }),
       Placeholder.configure({ placeholder: "Tulis di sini… ketik / untuk separator, video, carousel" }),
     ],
     content: value || "",
@@ -238,6 +240,10 @@ export default function TipTapEditor({
     quote: editor.isActive("blockquote"),
     link: editor.isActive("link"),
     hr: editor.isActive("horizontalRule"),
+    alignLeft: editor.isActive({ textAlign: "left" }),
+    alignCenter: editor.isActive({ textAlign: "center" }),
+    alignRight: editor.isActive({ textAlign: "right" }),
+    alignJustify: editor.isActive({ textAlign: "justify" }),
   };
 
   return (
@@ -258,6 +264,11 @@ export default function TipTapEditor({
         {iconBtn("format_list_bulleted", active.bullet, () => editor.chain().focus().toggleBulletList().run(), "Daftar berpoin")}
         {iconBtn("format_list_numbered", active.numbered, () => editor.chain().focus().toggleOrderedList().run(), "Daftar bernomor")}
         {iconBtn("format_quote", active.quote, () => editor.chain().focus().toggleBlockquote().run(), "Kutipan")}
+        <span className="tb-sep" />
+        {iconBtn("format_align_left", active.alignLeft, () => editor.chain().focus().setTextAlign("left").run(), "Rata kiri")}
+        {iconBtn("format_align_center", active.alignCenter, () => editor.chain().focus().setTextAlign("center").run(), "Rata tengah")}
+        {iconBtn("format_align_right", active.alignRight, () => editor.chain().focus().setTextAlign("right").run(), "Rata kanan")}
+        {iconBtn("format_align_justify", active.alignJustify, () => editor.chain().focus().setTextAlign("justify").run(), "Rata kanan-kiri (justify)")}
         <span className="tb-sep" />
         {iconBtn("link", active.link, () => setLink(), "Tautan")}
         {iconBtn("image", false, () => pickImage(), "Upload gambar")}
