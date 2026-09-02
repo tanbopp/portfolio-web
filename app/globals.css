@@ -165,19 +165,6 @@ body {
   margin-top: 0.5rem;
 }
 
-/* Readable centered text column; media (images) spans the full width */
-.wysiwyg-content > p,
-.wysiwyg-content > h1,
-.wysiwyg-content > h2,
-.wysiwyg-content > h3,
-.wysiwyg-content > ul,
-.wysiwyg-content > ol,
-.wysiwyg-content > blockquote {
-  max-width: 46rem;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 /* ---- CKEditor (admin) dark theme, matching the site ---- */
 .admin-ckeditor {
   --ck-color-base-foreground: #1b1b1b;
