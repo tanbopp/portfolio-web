@@ -149,3 +149,113 @@ body {
   font-size: 0.875rem;
   margin-top: 0.5rem;
 }
+
+/* ---- CKEditor (admin) dark theme, matching the site ---- */
+.admin-ckeditor {
+  --ck-color-base-foreground: #1b1b1b;
+  --ck-color-base-background: #0a0a0a;
+  --ck-color-base-border: #2e2e2e;
+  --ck-color-base-action: #2563eb;
+  --ck-color-base-focus: #60a5fa;
+  --ck-color-base-text: #e5e5e5;
+  --ck-color-base-active: #3b82f6;
+  --ck-color-base-active-focus: #60a5fa;
+  --ck-color-base-error: #f87171;
+  --ck-color-focus-border: #60a5fa;
+  --ck-color-focus-outer-shadow: #3b82f64d;
+  --ck-color-text: #e5e5e5;
+  --ck-color-button-default-hover-background: #262626;
+  --ck-color-button-default-active-background: #303030;
+  --ck-color-button-on-background: #1f3a5f;
+  --ck-color-button-on-hover-background: #27497a;
+  --ck-color-button-on-active-background: #27497a;
+  --ck-color-button-on-color: #ffffff;
+  --ck-color-button-action-background: #2563eb;
+  --ck-color-button-action-text: #ffffff;
+  --ck-color-button-save: #4ade80;
+  --ck-color-button-cancel: #f87171;
+  --ck-color-switch-button-off-background: #4b4b4b;
+  --ck-color-switch-button-off-hover-background: #3a3a3a;
+  --ck-color-switch-button-inner-background: #0a0a0a;
+  --ck-color-toolbar-background: #0a0a0a;
+  --ck-color-toolbar-border: #2e2e2e;
+  --ck-color-tooltip-background: #262626;
+  --ck-color-tooltip-text: #e5e5e5;
+  --ck-color-input-background: #0a0a0a;
+  --ck-color-input-border: #3a3a3a;
+  --ck-color-input-text: #e5e5e5;
+  --ck-color-input-disabled-background: #161616;
+  --ck-color-input-disabled-border: #262626;
+  --ck-color-input-disabled-text: #7a7a7a;
+  --ck-color-list-background: #0f0f0f;
+  --ck-color-list-button-hover-background: #262626;
+  --ck-color-list-button-on-background: #3b82f6;
+  --ck-color-list-button-on-background-focus: #3b82f6;
+  --ck-color-list-button-on-text: #ffffff;
+  --ck-color-panel-background: #0f0f0f;
+  --ck-color-panel-border: #2e2e2e;
+  --ck-color-link-default: #7cb8ff;
+  --ck-color-engine-placeholder-text: #6b6b6b;
+  --ck-color-editable-blur-selection: #3b82f633;
+  --ck-font-face: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+  --ck-font-size-base: 15px;
+  --ck-line-height-base: 1.7;
+
+  border-radius: 0.375rem;
+}
+
+/* Editing area: dark surface, site font & text colour */
+.admin-ckeditor .ck.ck-editor__main > .ck-editor__editable,
+.admin-ckeditor .ck.ck-editor__editable_inline {
+  background: #0a0a0a;
+  color: rgb(212 212 212);
+  min-height: 240px;
+}
+.admin-ckeditor .ck.ck-editor__editable.ck-focused {
+  border-color: #2e2e2e;
+}
+
+/* Toolbar + panels sit on the dark surface with subtle borders */
+.admin-ckeditor .ck.ck-toolbar {
+  background: #0a0a0a;
+  border-color: #2e2e2e;
+}
+.admin-ckeditor .ck.ck-toolbar .ck.ck-button.ck-on {
+  background: var(--ck-color-button-on-background);
+}
+.admin-ckeditor .ck.ck-dropdown__panel,
+.admin-ckeditor .ck.ck-balloon-panel {
+  background: #0f0f0f;
+  border-color: #2e2e2e;
+}
+
+/* Mirror the site's article typography so the editor preview matches */
+.admin-ckeditor .ck.ck-editor__editable h1,
+.admin-ckeditor .ck.ck-editor__editable h2,
+.admin-ckeditor .ck.ck-editor__editable h3 {
+  color: #ffffff;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 1.5rem 0 0.75rem;
+}
+.admin-ckeditor .ck.ck-editor__editable h1 { font-size: 2rem; }
+.admin-ckeditor .ck.ck-editor__editable h2 { font-size: 1.5rem; }
+.admin-ckeditor .ck.ck-editor__editable h3 { font-size: 1.25rem; }
+.admin-ckeditor .ck.ck-editor__editable p {
+  color: rgb(212 212 212);
+  line-height: 1.75;
+}
+.admin-ckeditor .ck.ck-editor__editable a {
+  color: #7cb8ff;
+}
+.admin-ckeditor .ck.ck-editor__editable blockquote {
+  border-left: 2px solid rgb(82 82 82);
+  padding-left: 1rem;
+  color: rgb(163 163 163);
+  font-style: italic;
+}
+.admin-ckeditor .ck.ck-editor__editable ul,
+.admin-ckeditor .ck.ck-editor__editable ol {
+  padding-left: 1.5rem;
+  color: rgb(212 212 212);
+}

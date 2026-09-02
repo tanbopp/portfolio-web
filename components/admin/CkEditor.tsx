@@ -18,5 +18,9 @@ export default function CkEditor({
   value: string;
   onChange: (html: string) => void;
 }) {
-  return <Inner value={value} onChange={onChange} />;
+  return (
+    <div className="admin-ckeditor">
+      <Inner value={value} onChange={onChange} />
+    </div>
+  );
 }
