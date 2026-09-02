@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import CkEditor from "./CkEditor";
+import TipTapEditor from "./tiptap/TipTapEditor";
 import ImagePicker from "./ImagePicker";
 import GalleryUploader, { type GalleryItem } from "./GalleryUploader";
 import type { Project } from "@/lib/types";
@@ -216,12 +216,12 @@ export default function ProjectForm({ initial, isEdit = false }: Props) {
 
       <div>
         <label className={labelCls}>Showcase</label>
-        <CkEditor value={showcase} onChange={setShowcase} />
+        <TipTapEditor value={showcase} onChange={setShowcase} />
       </div>
 
       <div>
         <label className={labelCls}>Article</label>
-        <CkEditor value={article} onChange={setArticle} />
+        <TipTapEditor value={article} onChange={setArticle} />
       </div>
 
       <label className="flex items-center gap-2 text-sm text-neutral-300">

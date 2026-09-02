@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Container from "@/components/Container";
 import SectionHeading from "@/components/SectionHeading";
 import Button from "@/components/Button";
+import RichContent from "@/components/RichContent";
 import { getProjectBySlug } from "@/lib/projects";
 import { storageUrl } from "@/lib/supabase";
 
@@ -142,10 +143,7 @@ export default async function ProjectPage({
       {project.showcase && (
         <section className="w-full bg-black py-8">
           <Container data-aos="fade-up">
-            <div
-              className="wysiwyg-content"
-              dangerouslySetInnerHTML={{ __html: project.showcase }}
-            />
+            <RichContent html={project.showcase} />
           </Container>
         </section>
       )}
@@ -186,10 +184,7 @@ export default async function ProjectPage({
         <section className="w-full border-t border-neutral-800/80 py-8">
           <Container data-aos="fade-up">
             <SectionHeading className="mb-8 text-3xl sm:text-4xl">Article</SectionHeading>
-            <div
-              className="wysiwyg-content"
-              dangerouslySetInnerHTML={{ __html: project.article }}
-            />
+            <RichContent html={project.article} />
           </Container>
         </section>
       )}

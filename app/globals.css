@@ -298,3 +298,250 @@ body {
   width: 100%;
   max-height: 816px;
 }
+
+/* ---- Slash command menu ------------------------------------------------ */
+.tb-slash-menu {
+  background: #111;
+  border: 1px solid #2e2e2e;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  padding: 0.35rem;
+  width: 260px;
+  font-family: 'Manrope', system-ui, sans-serif;
+  overflow: hidden;
+}
+.tb-slash-heading {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #8a8a8a;
+  padding: 0.3rem 0.5rem 0.4rem;
+}
+.tb-slash-item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  color: #e5e5e5;
+  border: 0;
+  padding: 0.45rem 0.5rem;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  font-size: 13.5px;
+}
+.tb-slash-item.tb-sel,
+.tb-slash-item:hover {
+  background: #262626;
+}
+.tb-slash-item .tb-slash-txt {
+  color: #fff;
+}
+
+/* ---- Custom blocks inside the editor ----------------------------------- */
+.admin-ckeditor .ck-content .tb-block {
+  width: 100%;
+  margin: 1.25rem 0;
+  border-radius: 0.375rem;
+}
+.admin-ckeditor .ck-content .tb-ui {
+  border: 1px dashed #3a3a3a;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.02);
+}
+.admin-ckeditor .ck-content .tb-separator {
+  height: 1px;
+  background: linear-gradient(to right, transparent, #555, transparent);
+}
+.admin-ckeditor .ck-content .tb-separator:not(.tb-ui) {
+  height: 1px;
+}
+.tb-video-preview,
+.tb-caro-stage {
+  width: 100%;
+  margin-bottom: 0.5rem;
+  border-radius: 0.375rem;
+  overflow: hidden;
+  background: #000;
+}
+.tb-video-preview .tb-iframe,
+.tb-video-preview .tb-video-tag,
+.tb-caro-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 560px;
+  object-fit: cover;
+}
+.tb-video-empty,
+.tb-caro-empty {
+  color: #8a8a8a;
+  font-size: 13px;
+  padding: 1.5rem;
+  text-align: center;
+}
+.tb-field {
+  width: 100%;
+  margin-top: 0.25rem;
+  background: #0a0a0a;
+  border: 1px solid #333;
+  color: #e5e5e5;
+  border-radius: 0.375rem;
+  padding: 0.4rem 0.6rem;
+  font-size: 13px;
+  outline: none;
+}
+.tb-field:focus {
+  border-color: #3b82f6;
+}
+.tb-opts {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+  font-size: 12.5px;
+  color: #bdbdbd;
+}
+.tb-check {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  cursor: pointer;
+}
+.tb-btn {
+  background: #1f2937;
+  color: #e5e5e5;
+  border: 1px solid #374151;
+  border-radius: 0.375rem;
+  padding: 0.3rem 0.6rem;
+  font-size: 12.5px;
+  cursor: pointer;
+}
+.tb-btn:hover {
+  background: #374151;
+}
+.tb-btn.tb-danger {
+  background: transparent;
+  border-color: #7f1d1d;
+  color: #fca5a5;
+}
+.tb-hint {
+  color: #6b7280;
+}
+.tb-caro-nav {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 0.35rem;
+}
+.tb-caro-arrow {
+  width: 44px;
+  height: 34px;
+  border-radius: 999px;
+  border: 1px solid #374151;
+  background: #111;
+  color: #e5e5e5;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+}
+.tb-caro-arrow:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+.tb-caro-cell {
+  position: relative;
+}
+.tb-caro-del {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  border: 0;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  cursor: pointer;
+}
+.tb-caro-count {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  border-radius: 999px;
+  padding: 2px 8px;
+  font-size: 12px;
+}
+
+/* ---- Public rendering of saved media blocks ---------------------------- */
+.wysiwyg-content hr {
+  border: 0;
+  height: 1px;
+  margin: 2rem 0;
+  background: linear-gradient(to right, transparent, rgb(120 120 120 / 0.7), transparent);
+}
+.wysiwyg-content .tb-block,
+.wysiwyg-content .tb-video,
+.wysiwyg-content .tb-carousel,
+.wysiwyg-content .tb-caro {
+  margin: 1.75rem 0;
+}
+.wysiwyg-content .tb-iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-radius: 0.5rem;
+}
+.wysiwyg-content .tb-video-tag,
+.wysiwyg-content .tb-caro-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 816px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+.wysiwyg-content .tb-caro {
+  position: relative;
+}
+.wysiwyg-content .tb-caro-arrows {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.75rem;
+}
+.wysiwyg-content .tb-caro-arrow {
+  width: 46px;
+  height: 40px;
+  border-radius: 999px;
+  border: 1px solid rgb(82 82 82);
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 200ms;
+}
+.wysiwyg-content .tb-caro-arrow:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+.wysiwyg-content .tb-caro-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.6rem;
+}
+.wysiwyg-content .tb-caro-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  border: 0;
+  background: rgb(82 82 82);
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 200ms;
+}
+.wysiwyg-content .tb-caro-dot.on {
+  background: #fff;
+}
