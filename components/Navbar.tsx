@@ -29,28 +29,18 @@ export default function Navbar() {
     };
   }, []);
 
-  const menuLink = (href: string, label: string, delay: number) => (
-    <Link
-      href={href}
-      style={{ transitionDelay: pastHero ? `${delay}ms` : "0ms" }}
-      className={`text-sm text-neutral-300 transition-all duration-500 ease-out hover:text-white ${
-        pastHero
-          ? "translate-y-0 opacity-100"
-          : "pointer-events-none -translate-y-2 opacity-0"
-      }`}
-    >
-      {label}
-    </Link>
-  );
+  const reveal = pastHero
+    ? "translate-y-0 opacity-100"
+    : "pointer-events-none -translate-y-2 opacity-0";
 
   return (
     <nav id="site-nav" className="fixed top-0 left-0 right-0 z-[1000]">
       <div id="site-nav-bg" className="pointer-events-none absolute inset-0" />
-      <div className="relative mx-auto flex max-w-[100rem] items-center justify-between px-4 py-6 sm:px-8">
+      <div className="relative mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-6 sm:px-8">
         <Link href="/" aria-label="Tanbopp — home" className="flex items-center">
           {/* Desktop: full wordmark logo */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/logo.svg" alt="Tanbopp" className="hidden h-4 w-auto sm:block" />
+          <img src="/logo.svg" alt="Tanbopp" className="hidden h-[13px] w-auto sm:block" />
           {/* Mobile: favicon mark, inverted so it stands out on the dark bar */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
@@ -59,9 +49,23 @@ export default function Navbar() {
             className="block h-7 w-auto invert sm:hidden"
           />
         </Link>
-        <div className="flex items-center gap-6">
-          {menuLink("/#projects", "Projects", 0)}
-          {menuLink("/#contact", "Contact Me", 100)}
+        <div className="flex items-center gap-5 sm:gap-6">
+          {/* Projects: hidden on mobile, desktop only — revealed first */}
+          <Link
+            href="/#projects"
+            style={{ transitionDelay: pastHero ? "0ms" : "0ms" }}
+            className={`hidden text-sm text-neutral-300 transition-all duration-500 ease-out hover:text-white sm:inline-flex ${reveal}`}
+          >
+            Projects
+          </Link>
+          {/* Contact Me: shown on all sizes — revealed second (100ms delay) */}
+          <Link
+            href="/#contact"
+            style={{ transitionDelay: pastHero ? "100ms" : "0ms" }}
+            className={`text-sm text-neutral-300 transition-all duration-500 ease-out hover:text-white ${reveal}`}
+          >
+            Contact Me
+          </Link>
         </div>
       </div>
     </nav>
