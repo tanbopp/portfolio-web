@@ -1,11 +1,11 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { BubbleMenu } from "@tiptap/react/menus";
 import { EditorContent, useEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
-import Underline from "@tiptap/extension-underline";
-import Link from "@tiptap/extension-link";
 import Image from "@tiptap/extension-image";
+import MaterialIcon from "@/components/MaterialIcon";
 import { Table } from "@tiptap/extension-table";
 import { TableRow } from "@tiptap/extension-table-row";
 import { TableCell } from "@tiptap/extension-table-cell";
@@ -36,11 +36,12 @@ export default function TipTapEditor({
 
   const editor = useEditor({
     extensions: [
+      // NOTE: StarterKit v3 already bundles Link & Underline (plus undo/redo,
+      // trailing-node). We only configure them here to avoid duplicate extensions.
       StarterKit.configure({
         heading: { levels: [1, 2, 3] },
+        link: { openOnClick: false },
       }),
-      Underline,
-      Link.configure({ openOnClick: false }),
       Image,
       Table.configure({ resizable: false }),
       TableRow,
@@ -158,15 +159,44 @@ export default function TipTapEditor({
 
   if (!editor) return null;
 
-  const btn = (label: string, on: boolean, fn: () => void, title?: string) => (
+  // Text-only button (headings, paragraph)
+  const txtBtn = (label: string, on: boolean, fn: () => void, title?: string) => (
     <button
       type="button"
       title={title || label}
-      className={"tb-tbtn" + (on ? " on" : "")}
+      className={"tb-tbtn tb-txt" + (on ? " on" : "")}
       onMouseDown={(e) => e.preventDefault()}
       onClick={fn}
     >
       {label}
+    </button>
+  );
+
+  // Material-icon button (toolbar)
+  const iconBtn = (name: string, on: boolean, fn: () => void, title: string) => (
+    <button
+      type="button"
+      title={title}
+      aria-label={title}
+      className={"tb-tbtn" + (on ? " on" : "")}
+      onMouseDown={(e) => e.preventDefault()}
+      onClick={fn}
+    >
+      <MaterialIcon name={name} className="tb-ic" />
+    </button>
+  );
+
+  // Smaller icon button used inside the bubble menu
+  const bb = (name: string, on: boolean, fn: () => void, title: string) => (
+    <button
+      type="button"
+      title={title}
+      aria-label={title}
+      className={"tb-bb" + (on ? " on" : "")}
+      onMouseDown={(e) => e.preventDefault()}
+      onClick={fn}
+    >
+      <MaterialIcon name={name} className="tb-ic" />
     </button>
   );
 
@@ -199,6 +229,7 @@ export default function TipTapEditor({
   const active = {
     h1: editor.isActive("heading", { level: 1 }),
     h2: editor.isActive("heading", { level: 2 }),
+    h3: editor.isActive("heading", { level: 3 }),
     bold: editor.isActive("bold"),
     italic: editor.isActive("italic"),
     underline: editor.isActive("underline"),
@@ -212,28 +243,42 @@ export default function TipTapEditor({
   return (
     <div className="tb-editor">
       <div className="tb-toolbar">
-        {btn("↶", false, () => editor.chain().focus().undo().run(), "Undo")}
-        {btn("↷", false, () => editor.chain().focus().redo().run(), "Redo")}
+        {iconBtn("undo", false, () => editor.chain().focus().undo().run(), "Undo")}
+        {iconBtn("redo", false, () => editor.chain().focus().redo().run(), "Redo")}
         <span className="tb-sep" />
-        {btn("H1", active.h1, () => editor.chain().focus().toggleHeading({ level: 1 }).run())}
-        {btn("H2", active.h2, () => editor.chain().focus().toggleHeading({ level: 2 }).run())}
-        {btn("¶", false, () => editor.chain().focus().setParagraph().run())}
+        {txtBtn("H1", active.h1, () => editor.chain().focus().toggleHeading({ level: 1 }).run(), "Heading 1")}
+        {txtBtn("H2", active.h2, () => editor.chain().focus().toggleHeading({ level: 2 }).run(), "Heading 2")}
+        {txtBtn("H3", active.h3, () => editor.chain().focus().toggleHeading({ level: 3 }).run(), "Heading 3")}
+        {txtBtn("¶", false, () => editor.chain().focus().setParagraph().run(), "Paragraf")}
         <span className="tb-sep" />
-        {btn("B", active.bold, () => editor.chain().focus().toggleBold().run())}
-        {btn("I", active.italic, () => editor.chain().focus().toggleItalic().run())}
-        {btn("U", active.underline, () => editor.chain().focus().toggleUnderline().run())}
+        {iconBtn("format_bold", active.bold, () => editor.chain().focus().toggleBold().run(), "Tebal (Bold)")}
+        {iconBtn("format_italic", active.italic, () => editor.chain().focus().toggleItalic().run(), "Miring (Italic)")}
+        {iconBtn("format_underlined", active.underline, () => editor.chain().focus().toggleUnderline().run(), "Garis bawah (Underline)")}
         <span className="tb-sep" />
-        {btn("•", active.bullet, () => editor.chain().focus().toggleBulletList().run())}
-        {btn("1.", active.numbered, () => editor.chain().focus().toggleOrderedList().run())}
-        {btn("❝", active.quote, () => editor.chain().focus().toggleBlockquote().run())}
+        {iconBtn("format_list_bulleted", active.bullet, () => editor.chain().focus().toggleBulletList().run(), "Daftar berpoin")}
+        {iconBtn("format_list_numbered", active.numbered, () => editor.chain().focus().toggleOrderedList().run(), "Daftar bernomor")}
+        {iconBtn("format_quote", active.quote, () => editor.chain().focus().toggleBlockquote().run(), "Kutipan")}
         <span className="tb-sep" />
-        {btn("🔗", active.link, () => setLink(), "Tautan")}
-        {btn("🖼", false, () => pickImage(), "Upload gambar")}
-        {btn("—", active.hr, () => editor.chain().focus().setHorizontalRule().run(), "Separator")}
+        {iconBtn("link", active.link, () => setLink(), "Tautan")}
+        {iconBtn("image", false, () => pickImage(), "Upload gambar")}
+        {iconBtn("smart_display", false, () => editor.chain().focus().insertContent({ type: "videoBlock" }).run(), "Video (YouTube/Vimeo/mp4)")}
+        {iconBtn("photo_library", false, () => editor.chain().focus().insertContent({ type: "carouselBlock" }).run(), "Galeri gambar (carousel)")}
+        {iconBtn("horizontal_rule", active.hr, () => editor.chain().focus().setHorizontalRule().run(), "Separator")}
       </div>
 
       <div className="tb-content-wrap">
         <EditorContent editor={editor} />
+
+        <BubbleMenu editor={editor} className="tb-bubble">
+          <div className="tb-bubble-inner">
+            {bb("format_bold", active.bold, () => editor.chain().focus().toggleBold().run(), "Tebal (Bold)")}
+            {bb("format_italic", active.italic, () => editor.chain().focus().toggleItalic().run(), "Miring (Italic)")}
+            {bb("format_underlined", active.underline, () => editor.chain().focus().toggleUnderline().run(), "Garis bawah (Underline)")}
+            <span className="tb-bsep" />
+            {bb("link", active.link, () => setLink(), "Tautan")}
+            {active.link && bb("link_off", false, () => editor.chain().focus().unsetLink().run(), "Hapus tautan")}
+          </div>
+        </BubbleMenu>
 
         {slashOpen && (
           <div className="tb-slash-menu">

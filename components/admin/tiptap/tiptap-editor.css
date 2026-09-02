@@ -77,6 +77,18 @@
   line-height: 1.75;
   margin: 0 0 1rem;
 }
+/* Tailwind preflight removes list markers by default — re-enable them so
+   bullets & numbers are visible while editing. */
+.tb-editable ul {
+  list-style: disc;
+}
+.tb-editable ol {
+  list-style: decimal;
+}
+.tb-editable ul li > p,
+.tb-editable ol li > p {
+  margin: 0.15rem 0;
+}
 .tb-editable a { color: #7cb8ff; }
 .tb-editable blockquote {
   border-left: 2px solid rgb(82 82 82);
@@ -124,4 +136,60 @@
   color: #8a8a8a;
   font-size: 13px;
   padding: 0.5rem;
+}
+
+/* Material icon sizing inside toolbar & bubble buttons */
+.tb-tbtn .tb-ic,
+.tb-bb .tb-ic {
+  font-size: 18px;
+  line-height: 1;
+  vertical-align: middle;
+}
+.tb-tbtn.tb-txt {
+  min-width: 30px;
+  padding: 0 0.35rem;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+/* Bubble menu (formatting tools shown on text selection) */
+.tb-bubble {
+  z-index: 60;
+  background: #161616;
+  border: 1px solid #333;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  padding: 4px;
+}
+.tb-bubble-inner {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.tb-bb {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 30px;
+  height: 30px;
+  padding: 0 0.4rem;
+  background: transparent;
+  color: #e5e5e5;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.tb-bb:hover {
+  background: #262626;
+}
+.tb-bb.on {
+  background: #1f3a5f;
+  color: #fff;
+}
+.tb-bsep {
+  width: 1px;
+  background: #333;
+  margin: 0 0.25rem;
+  align-self: stretch;
 }
