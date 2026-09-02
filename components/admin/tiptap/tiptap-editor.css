@@ -51,7 +51,7 @@
   min-height: 260px;
   padding: 1rem 1.1rem;
   color: #d4d4d4;
-  font-family: var(--font-display);
+  font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif;
   outline: none;
 }
 .tb-editable p {
