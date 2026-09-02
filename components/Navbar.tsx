@@ -19,8 +19,9 @@ export default function Navbar() {
     <nav id="site-nav" className="fixed top-0 left-0 right-0 z-[1000]">
       <div id="site-nav-bg" className="pointer-events-none absolute inset-0" />
       <div className="relative mx-auto flex max-w-[100rem] items-center justify-between px-4 py-6 sm:px-8">
-        <Link href="/" className="text-xl font-semibold tracking-tight text-white">
-          Tanbopp
+        <Link href="/" aria-label="Tanbopp — home" className="flex items-center">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/logo.svg" alt="Tanbopp" className="h-4 w-auto" />
         </Link>
         <div className="flex items-center gap-6">
           <Link href="/#projects" className="text-sm text-neutral-300 transition-colors hover:text-white">
