@@ -4,6 +4,7 @@ import Stat from "@/components/Stat";
 import RevealText from "@/components/RevealText";
 import SectionHeading from "@/components/SectionHeading";
 import WorkItem from "@/components/WorkItem";
+import ProductPanel from "@/components/ProductPanel";
 import Button from "@/components/Button";
 import ProjectsCarousel from "@/components/ProjectsCarousel";
 import { getPublishedProjects } from "@/lib/projects";
@@ -86,30 +87,18 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* Focus areas */}
+      {/* Product Showcase */}
       <section className="w-full bg-black py-20">
         <Container data-aos="fade-up">
           <SectionHeading className="text-3xl sm:text-5xl leading-[130%] mb-12 max-w-xl">
-            Software, AI automation, and intelligent hardware
+            Software, AI automation, and intelligent systems
           </SectionHeading>
 
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              "Software",
-              "AI Automation",
-              "Hardware-Software Bridge",
-              "Warehouse Humanoid Robots",
-            ].map((name, i) => (
-              <div
-                key={name}
-                className="rounded border-[0.5px] border-neutral-700 bg-neutral-900/40 px-5 py-6 transition-colors hover:bg-neutral-900"
-              >
-                <span className="text-xs tracking-widest text-neutral-500">
-                  0{i + 1}
-                </span>
-                <p className="mt-3 text-lg font-semibold text-white">{name}</p>
-              </div>
-            ))}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-8">
+            <ProductPanel name="Software" image="https://terafab.ai/assets/chips/Chip_AI5.png" />
+            <ProductPanel name="AI Automation" image="https://terafab.ai/assets/chips/Chip_AI6.png" />
+            <ProductPanel name="Hardware-Software Bridge" image="https://terafab.ai/assets/chips/Chip_D3.jpg" />
+            <ProductPanel name="Warehouse Humanoid Robots" image="https://terafab.ai/assets/chips/Chip_Beyond.png" bordered={false} />
           </div>
         </Container>
       </section>
