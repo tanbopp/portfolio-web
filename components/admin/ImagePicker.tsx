@@ -1,45 +1,33 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { storageUrl } from "@/lib/supabase";
 import MaterialIcon from "@/components/MaterialIcon";
 
+export type PendingMap = { current: Map<string, File> };
+
 /**
- * Large image dropzone. `aspect` controls the container ratio, e.g.
- * "aspect-[2/1]" for the hero image, "aspect-video" (16:9) for the card.
+ * Large image dropzone. It does NOT upload anywhere — it only stages the chosen
+ * file locally (object URL + entry in `pending`), so nothing is stored until the
+ * project form is actually saved. `value` is either an existing storage path or
+ * a `blob:` preview for a pending upload.
  */
 export default function ImagePicker({
   label,
   value,
   onChange,
+  pending,
   aspect = "aspect-[2/1]",
 }: {
   label: string;
   value: string | null;
-  onChange: (path: string | null) => void;
+  onChange: (value: string | null) => void;
+  pending: PendingMap;
   aspect?: string;
 }) {
   const inputRef = useRef<HTMLInputElement>(null);
-  const [uploading, setUploading] = useState(false);
 
-  async function onFile(file: File) {
-    setUploading(true);
-    try {
-      const fd = new FormData();
-      fd.append("file", file);
-      const res = await fetch("/api/upload", { method: "POST", body: fd });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || "Upload gagal");
-      onChange(data.path);
-    } catch (err: any) {
-      alert(err.message || "Upload gagal");
-    } finally {
-      setUploading(false);
-      if (inputRef.current) inputRef.current.value = "";
-    }
-  }
-
-  const preview = storageUrl(value);
+  const preview = value?.startsWith("blob:") ? value : storageUrl(value);
 
   return (
     <div>
@@ -71,12 +59,11 @@ export default function ImagePicker({
         ) : (
           <button
             type="button"
-            disabled={uploading}
             onClick={() => inputRef.current?.click()}
-            className="flex h-full w-full flex-col items-center justify-center gap-2 text-neutral-400 transition-colors hover:bg-neutral-900 hover:text-white disabled:opacity-50"
+            className="flex h-full w-full flex-col items-center justify-center gap-2 text-neutral-400 transition-colors hover:bg-neutral-900 hover:text-white"
           >
-            <MaterialIcon name={uploading ? "hourglass_top" : "add_circle_outline"} className="text-5xl" />
-            <span className="text-sm">{uploading ? "Uploading..." : "Tambah gambar"}</span>
+            <MaterialIcon name="add_circle_outline" className="text-5xl" />
+            <span className="text-sm">Tambah gambar</span>
           </button>
         )}
       </div>
@@ -87,9 +74,15 @@ export default function ImagePicker({
         className="hidden"
         onChange={(e) => {
           const f = e.target.files?.[0];
-          if (f) onFile(f);
+          if (f) {
+            const url = URL.createObjectURL(f);
+            pending.current.set(url, f);
+            onChange(url);
+          }
+          if (inputRef.current) inputRef.current.value = "";
         }}
       />
     </div>
   );
 }
+

@@ -1,42 +1,41 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { storageUrl } from "@/lib/supabase";
 import MaterialIcon from "@/components/MaterialIcon";
+import type { PendingMap } from "./ImagePicker";
 
 export interface GalleryItem {
   media: string;
   media_type: "image" | "video";
 }
 
+/** Resolve the preview source for an item (existing path vs pending blob). */
+function previewOf(item: GalleryItem): string | undefined {
+  return item.media?.startsWith("blob:")
+    ? item.media
+    : (storageUrl(item.media) ?? undefined);
+}
+
 export default function GalleryUploader({
   items,
   onChange,
+  pending,
 }: {
   items: GalleryItem[];
   onChange: (items: GalleryItem[]) => void;
+  pending: PendingMap;
 }) {
   const inputRef = useRef<HTMLInputElement>(null);
-  const [uploading, setUploading] = useState(false);
 
-  async function onFiles(files: FileList | null) {
+  function onFiles(files: FileList | null) {
     if (!files || files.length === 0) return;
-    setUploading(true);
-    const added: GalleryItem[] = [];
-    for (const file of Array.from(files)) {
-      const fd = new FormData();
-      fd.append("file", file);
-      try {
-        const res = await fetch("/api/upload", { method: "POST", body: fd });
-        const data = await res.json();
-        if (res.ok) added.push({ media: data.path, media_type: "image" });
-        else alert(data.error || "Upload gagal");
-      } catch {
-        alert("Upload gagal");
-      }
-    }
+    const added: GalleryItem[] = Array.from(files).map((file) => {
+      const url = URL.createObjectURL(file);
+      pending.current.set(url, file);
+      return { media: url, media_type: "image" };
+    });
     onChange([...items, ...added]);
-    setUploading(false);
     if (inputRef.current) inputRef.current.value = "";
   }
 
@@ -50,7 +49,7 @@ export default function GalleryUploader({
             className="group relative aspect-video overflow-hidden rounded-md border border-neutral-800"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={storageUrl(item.media) ?? undefined} alt="" className="h-full w-full object-cover" />
+            <img src={previewOf(item)} alt="" className="h-full w-full object-cover" />
             <button
               type="button"
               onClick={() => onChange(items.filter((_, j) => j !== i))}
@@ -63,12 +62,11 @@ export default function GalleryUploader({
         ))}
         <button
           type="button"
-          disabled={uploading}
           onClick={() => inputRef.current?.click()}
-          className="flex aspect-video flex-col items-center justify-center gap-1 rounded-md border border-dashed border-neutral-700 text-neutral-400 transition-colors hover:border-neutral-500 hover:text-white disabled:opacity-50"
+          className="flex aspect-video flex-col items-center justify-center gap-1 rounded-md border border-dashed border-neutral-700 text-neutral-400 transition-colors hover:border-neutral-500 hover:text-white"
         >
-          <MaterialIcon name={uploading ? "hourglass_top" : "add"} className="text-2xl" />
-          <span className="text-xs">{uploading ? "Uploading..." : "Tambah"}</span>
+          <MaterialIcon name="add" className="text-2xl" />
+          <span className="text-xs">Tambah</span>
         </button>
       </div>
       <input

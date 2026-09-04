@@ -1,76 +1,72 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import MaterialIcon from "@/components/MaterialIcon";
+import type { PendingMap } from "./ImagePicker";
 
 /**
- * Upload a PDF into the private artwork bucket (see /api/artwork).
- * Only stores the private `path` — never a public URL.
+ * Uploader untuk artwork PDF. Hanya men-*stage* file secara lokal (object URL +
+ * entri di `pending`) — tidak menyimpan apa pun sampai project disimpan.
+ * Untuk file baru yang dipilih, pratinjau ditampilkan via object URL lokal.
  */
 export default function ArtworkPdfUploader({
   label,
   value,
   onChange,
+  pending,
 }: {
   label: string;
   value: string | null;
-  onChange: (path: string | null) => void;
+  onChange: (value: string | null) => void;
+  pending: PendingMap;
 }) {
   const inputRef = useRef<HTMLInputElement>(null);
-  const [uploading, setUploading] = useState(false);
-
-  async function onFile(file: File) {
-    setUploading(true);
-    try {
-      const fd = new FormData();
-      fd.append("file", file);
-      const res = await fetch("/api/artwork", { method: "POST", body: fd });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || "Upload gagal");
-      onChange(data.path);
-    } catch (err: any) {
-      alert(err.message || "Upload gagal");
-    } finally {
-      setUploading(false);
-      if (inputRef.current) inputRef.current.value = "";
-    }
-  }
+  const isPending = !!value?.startsWith("blob:");
 
   return (
     <div>
       <span className="mb-2 block text-sm text-neutral-300">{label}</span>
-      <div className="flex items-center gap-3 rounded-md border border-dashed border-neutral-700 bg-neutral-950 px-4 py-5">
+      <div className="rounded-md border border-dashed border-neutral-700 bg-neutral-950 px-4 py-5">
         {value ? (
           <>
-            <MaterialIcon name="picture_as_pdf" className="text-2xl text-red-400/80" />
-            <span className="min-w-0 flex-1 truncate text-sm text-neutral-300">
-              Artwork PDF terpasang
-            </span>
-            <button
-              type="button"
-              onClick={() => inputRef.current?.click()}
-              disabled={uploading}
-              className="rounded border border-neutral-700 px-3 py-1.5 text-sm text-neutral-200 transition-colors hover:bg-neutral-800 disabled:opacity-50"
-            >
-              Ganti
-            </button>
-            <button
-              type="button"
-              onClick={() => onChange(null)}
-              className="rounded border border-neutral-700 px-2.5 py-1.5 text-sm text-neutral-300 transition-colors hover:bg-neutral-800 hover:text-white"
-            >
-              Hapus
-            </button>
+            <div className="mb-3 flex items-center gap-3">
+              <MaterialIcon name="picture_as_pdf" className="text-2xl text-red-400/80" />
+              <span className="min-w-0 flex-1 truncate text-sm text-neutral-300">
+                {isPending ? "Artwork PDF baru (belum disimpan)" : "Artwork PDF terpasang"}
+              </span>
+            </div>
+            {isPending && value && (
+              <iframe
+                src={value}
+                title="Pratinjau artwork"
+                className="mb-3 h-56 w-full rounded-md border border-neutral-800 bg-white"
+              />
+            )}
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                onClick={() => inputRef.current?.click()}
+                className="rounded border border-neutral-700 px-3 py-1.5 text-sm text-neutral-200 transition-colors hover:bg-neutral-800"
+              >
+                Ganti
+              </button>
+              <button
+                type="button"
+                onClick={() => onChange(null)}
+                className="rounded border border-neutral-700 px-2.5 py-1.5 text-sm text-neutral-300 transition-colors hover:bg-neutral-800 hover:text-white"
+              >
+                Hapus
+              </button>
+            </div>
           </>
         ) : (
           <button
             type="button"
-            disabled={uploading}
             onClick={() => inputRef.current?.click()}
-            className="flex w-full items-center justify-center gap-2 text-neutral-400 transition-colors hover:text-white disabled:opacity-50"
+            className="flex w-full items-center justify-center gap-2 text-neutral-400 transition-colors hover:text-white"
           >
-            <MaterialIcon name={uploading ? "hourglass_top" : "upload_file"} className="text-xl" />
-            <span className="text-sm">{uploading ? "Uploading…" : "Upload artwork (PDF)"}</span>
+            <MaterialIcon name="upload_file" className="text-xl" />
+            <span className="text-sm">Upload artwork (PDF)</span>
           </button>
         )}
       </div>
@@ -81,7 +77,12 @@ export default function ArtworkPdfUploader({
         className="hidden"
         onChange={(e) => {
           const f = e.target.files?.[0];
-          if (f) onFile(f);
+          if (f) {
+            const url = URL.createObjectURL(f);
+            pending.current.set(url, f);
+            onChange(url);
+          }
+          if (inputRef.current) inputRef.current.value = "";
         }}
       />
     </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import TipTapEditor from "./tiptap/TipTapEditor";
 import ImagePicker from "./ImagePicker";
@@ -55,6 +55,10 @@ export default function ProjectForm({ initial, isEdit = false }: Props) {
   );
   const [published, setPublished] = useState(initial?.published ?? true);
 
+  // Media staged in memory (blob: URL -> File). Nothing is uploaded to Supabase
+  // until the user clicks Save.
+  const pendingRef = useRef<Map<string, File>>(new Map());
+
   function splitList(text: string): string[] {
     return text.split(",").map((s) => s.trim()).filter(Boolean);
   }
@@ -79,35 +83,67 @@ export default function ProjectForm({ initial, isEdit = false }: Props) {
     setActions((prev) => [...prev, { label: "", url: "" }]);
   }
 
+  // Upload a pending (blob) file only now, at save time. Images are converted
+  // to AVIF via /api/upload; PDF artwork goes to /api/artwork. Existing storage
+  // paths pass through unchanged.
+  async function resolvePending(
+    value: string | null | undefined,
+  ): Promise<string | null> {
+    if (!value) return null;
+    if (!value.startsWith("blob:")) return value;
+    const file = pendingRef.current.get(value);
+    if (!file) return null;
+    const fd = new FormData();
+    fd.append("file", file);
+    const isPdf =
+      file.type === "application/pdf" ||
+      file.name.toLowerCase().endsWith(".pdf");
+    const res = await fetch(isPdf ? "/api/artwork" : "/api/upload", {
+      method: "POST",
+      body: fd,
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || "Upload gagal");
+    return data.path;
+  }
+
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
     setError("");
     setSaving(true);
 
-    const payload = {
-      title,
-      description,
-      slug,
-      work_for: workFor,
-      year,
-      deliverables: splitList(deliverables),
-      platform: platform.map((p) => p.trim()).filter(Boolean),
-      technologies: splitList(technologies),
-      actions: actions
-        .map((a) => ({ label: a.label.trim(), url: a.url.trim() }))
-        .filter((a) => a.label || a.url),
-      showcase,
-      article,
-      hero_image: heroImage,
-      card_image: cardImage,
-      project_type: projectType,
-      pacdora_url: pacdoraUrl.trim() || null,
-      artwork_pdf: artworkPdf,
-      gallery: gallery.map((g) => g.media),
-      published,
-    };
-
     try {
+      const hero = await resolvePending(heroImage);
+      const card = await resolvePending(cardImage);
+      const artwork = await resolvePending(artworkPdf);
+      const galleryResolved: (string | null)[] = [];
+      for (const g of gallery) {
+        galleryResolved.push(await resolvePending(g.media));
+      }
+
+      const payload = {
+        title,
+        description,
+        slug,
+        work_for: workFor,
+        year,
+        deliverables: splitList(deliverables),
+        platform: platform.map((p) => p.trim()).filter(Boolean),
+        technologies: splitList(technologies),
+        actions: actions
+          .map((a) => ({ label: a.label.trim(), url: a.url.trim() }))
+          .filter((a) => a.label || a.url),
+        showcase,
+        article,
+        hero_image: hero,
+        card_image: card,
+        project_type: projectType,
+        pacdora_url: pacdoraUrl.trim() || null,
+        artwork_pdf: artwork,
+        gallery: galleryResolved.filter(Boolean) as string[],
+        published,
+      };
+
       const url = isEdit ? `/api/projects/${initial?.slug}` : "/api/projects";
       const method = isEdit ? "PUT" : "POST";
       const res = await fetch(url, {
@@ -160,6 +196,7 @@ export default function ProjectForm({ initial, isEdit = false }: Props) {
         }
         value={heroImage}
         onChange={setHeroImage}
+        pending={pendingRef}
         aspect={projectType === "design" ? "aspect-[4/3]" : "aspect-[2/1]"}
       />
 
@@ -182,12 +219,19 @@ export default function ProjectForm({ initial, isEdit = false }: Props) {
             label="Artwork PDF (ditampilkan sebagai viewer canvas)"
             value={artworkPdf}
             onChange={setArtworkPdf}
+            pending={pendingRef}
           />
         </div>
       )}
 
       {/* Card image — card ratio (16:9) */}
-      <ImagePicker label="Gambar Card (16:9)" value={cardImage} onChange={setCardImage} aspect="aspect-video" />
+      <ImagePicker
+        label="Gambar Card (16:9)"
+        value={cardImage}
+        onChange={setCardImage}
+        pending={pendingRef}
+        aspect="aspect-video"
+      />
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div className="sm:col-span-2">
@@ -277,7 +321,7 @@ export default function ProjectForm({ initial, isEdit = false }: Props) {
         </div>
       </div>
 
-      <GalleryUploader items={gallery} onChange={setGallery} />
+      <GalleryUploader items={gallery} onChange={setGallery} pending={pendingRef} />
 
       <div>
         <label className={labelCls}>Showcase</label>
