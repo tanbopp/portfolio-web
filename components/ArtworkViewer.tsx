@@ -6,6 +6,9 @@ import { artworkUrl, storageUrl } from "@/lib/supabase";
 
 type PageData = { src: string; w: number; h: number };
 
+// pdf.js worker served as a static asset in /public.
+const PDF_WORKER = "/pdf.worker.min.mjs";
+
 /**
  * Canvas-style PDF artwork viewer.
  *
@@ -20,6 +23,8 @@ export default function ArtworkViewer({ file }: { file: string }) {
   const [pages, setPages] = useState<PageData[]>([]);
   const [maxW, setMaxW] = useState(1);
   const [view, setView] = useState({ s: 1, x: 0, y: 0 });
+  const [errorMsg, setErrorMsg] = useState("");
+  const [loadedUrl, setLoadedUrl] = useState<string | null>(null);
   const dragRef = useRef<{ sx: number; sy: number; px: number; py: number } | null>(null);
   const fitS = viewportRef.current
     ? viewportRef.current.clientWidth / maxW
@@ -39,15 +44,14 @@ export default function ArtworkViewer({ file }: { file: string }) {
           const r = await fetch(u);
           if (r.ok) {
             res = r;
+            setLoadedUrl(u);
             break;
           }
         }
-        if (!res) throw new Error("File tidak ditemukan");
+        if (!res) throw new Error("File tidak ditemukan (cek bucket/file)");
         const buf = await res.arrayBuffer();
         const pdfjs: any = await import("pdfjs-dist");
-        const worker = (await import("pdfjs-dist/build/pdf.worker.min.mjs?url"))
-          .default as string;
-        pdfjs.GlobalWorkerOptions.workerSrc = worker;
+        pdfjs.GlobalWorkerOptions.workerSrc = PDF_WORKER;
         const doc = await pdfjs.getDocument({ data: buf }).promise;
 
         const rendered: PageData[] = [];
@@ -76,7 +80,10 @@ export default function ArtworkViewer({ file }: { file: string }) {
         setStatus("ready");
       } catch (err) {
         console.error(err);
-        if (!cancelled) setStatus("error");
+        if (!cancelled) {
+          setErrorMsg(err instanceof Error ? err.message : String(err));
+          setStatus("error");
+        }
       }
     })();
     return () => {
@@ -164,9 +171,14 @@ export default function ArtworkViewer({ file }: { file: string }) {
         {status === "loading" && (
           <div className="artwork-msg">Memuat artwork…</div>
         )}
-        {status === "error" && (
-          <div className="artwork-msg">Gagal memuat artwork PDF.</div>
-        )}
+        {status === "error" &&
+          (loadedUrl ? (
+            <iframe src={loadedUrl} title="Artwork" className="artwork-fallback" />
+          ) : (
+            <div className="artwork-msg">
+              Gagal memuat artwork{errorMsg ? `: ${errorMsg}` : ""}.
+            </div>
+          ))}
         {status === "ready" && (
           <div
             className="artwork-inner"
