@@ -13,10 +13,9 @@ if (!supabaseUrl || !supabaseAnonKey) {
 export const STORAGE_BUCKET = "projects";
 
 /**
- * Private storage bucket for artwork PDFs. Files here are never served via a
- * public URL — they are only streamed through the /api/artwork/[file] proxy
- * (with anti-download headers) so visitors can view them but not fetch a raw
- * shareable link.
+ * Storage bucket for artwork PDFs. Original design kept it private and streamed
+ * through /api/artwork/[file] so visitors couldn't grab a raw link; if you make
+ * the bucket public, the artwork URL below becomes directly loadable.
  */
 export const ARTWORK_BUCKET = "artwork";
 
@@ -31,6 +30,19 @@ export function storageUrl(path?: string | null): string | null {
   if (path.startsWith("http://") || path.startsWith("https://")) return path;
   const clean = path.replace(/^projects\//, "");
   return `${supabaseUrl}/storage/v1/object/public/${STORAGE_BUCKET}/${clean}`;
+}
+
+/**
+ * Resolve a stored artwork PDF to a public object URL.
+ * Accepts a full URL, a "artwork/<file>" or "projects/<file>" path, or a bare
+ * filename (which we look up in the artwork bucket).
+ */
+export function artworkUrl(path?: string | null): string | null {
+  if (!path) return null;
+  if (path.startsWith("http://") || path.startsWith("https://")) return path;
+  if (path.startsWith("projects/")) return storageUrl(path);
+  const clean = path.replace(/^artwork\//, "");
+  return `${supabaseUrl}/storage/v1/object/public/${ARTWORK_BUCKET}/${clean}`;
 }
 
 /** Create a client for server components / route handlers. */

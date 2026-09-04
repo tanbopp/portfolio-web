@@ -2,19 +2,19 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import MaterialIcon from "./MaterialIcon";
+import { artworkUrl, storageUrl } from "@/lib/supabase";
 
 type PageData = { src: string; w: number; h: number };
 
 /**
  * Canvas-style PDF artwork viewer.
  *
- * Renders each PDF page with pdf.js onto an offscreen canvas, then shows the
- * result inside a pannable + zoomable stage (drag to pan, wheel/buttons to
- * zoom). There is intentionally NO download control — the bytes come from the
- * anti-download /api/artwork proxy and are only ever drawn to a canvas.
+ * Loads the PDF from its public storage URL (or full URL) and renders each page
+ * with pdf.js onto an offscreen canvas, then shows the result inside a
+ * pannable + zoomable stage (drag to pan, wheel/buttons to zoom). There is no
+ * download button/control in the UI.
  */
 export default function ArtworkViewer({ file }: { file: string }) {
-  const url = `/api/artwork/${encodeURIComponent(file)}`;
   const viewportRef = useRef<HTMLDivElement>(null);
   const [status, setStatus] = useState<"loading" | "ready" | "error">("loading");
   const [pages, setPages] = useState<PageData[]>([]);
@@ -29,8 +29,20 @@ export default function ArtworkViewer({ file }: { file: string }) {
     let cancelled = false;
     (async () => {
       try {
-        const res = await fetch(url);
-        if (!res.ok) throw new Error("Gagal memuat file");
+        // Try the artwork bucket first; fall back to the projects bucket and to
+        // any full URL stored in artwork_pdf.
+        const candidates = [artworkUrl(file), storageUrl(file)].filter(
+          (u): u is string => !!u,
+        );
+        let res: Response | null = null;
+        for (const u of candidates) {
+          const r = await fetch(u);
+          if (r.ok) {
+            res = r;
+            break;
+          }
+        }
+        if (!res) throw new Error("File tidak ditemukan");
         const buf = await res.arrayBuffer();
         const pdfjs: any = await import("pdfjs-dist");
         const worker = (await import("pdfjs-dist/build/pdf.worker.min.mjs?url"))
@@ -71,7 +83,7 @@ export default function ArtworkViewer({ file }: { file: string }) {
       cancelled = true;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [url]);
+  }, [file]);
 
   // Fit the artwork to the viewport width once we know its size.
   useEffect(() => {
@@ -178,9 +190,7 @@ export default function ArtworkViewer({ file }: { file: string }) {
           </div>
         )}
       </div>
-      <p className="artwork-note">
-        Artwork bersifat rahasia — tidak tersedia untuk diunduh.
-      </p>
+      <p className="artwork-note">Gunakan zoom &amp; geser untuk meninjau artwork.</p>
     </div>
   );
 }
