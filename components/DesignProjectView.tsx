@@ -5,6 +5,7 @@ import RichContent from "./RichContent";
 import PacdoraEmbed from "./PacdoraEmbed";
 import ArtworkViewer from "./ArtworkViewer";
 import { storageUrl } from "@/lib/supabase";
+import { toolDef } from "@/lib/tools";
 import type { Project } from "@/lib/types";
 
 const SectionLabel = ({ children }: { children: ReactNode }) => (
@@ -108,14 +109,27 @@ export default function DesignProjectView({ project }: { project: Project }) {
                 <div>
                   <SectionLabel>Tools</SectionLabel>
                   <div className="flex flex-wrap gap-2">
-                    {tools.map((t) => (
-                      <span
-                        key={t}
-                        className="rounded-md border border-neutral-700 px-3 py-1.5 text-sm text-neutral-200"
-                      >
-                        {t}
-                      </span>
-                    ))}
+                    {tools.map((t) => {
+                      const def = toolDef(t);
+                      return (
+                        <span
+                          key={t}
+                          title={t}
+                          className="inline-flex items-center gap-2 rounded-md border border-neutral-700 bg-neutral-950 px-2 py-1.5"
+                        >
+                          <span
+                            className="flex h-6 w-6 shrink-0 items-center justify-center rounded text-[11px] font-bold uppercase"
+                            style={{
+                              color: def?.color ?? "#e5e5e5",
+                              backgroundColor: def ? `${def.color}22` : "#333",
+                            }}
+                          >
+                            {def ? def.short : t.slice(0, 2)}
+                          </span>
+                          <span className="text-sm text-neutral-200">{t}</span>
+                        </span>
+                      );
+                    })}
                   </div>
                 </div>
               )}

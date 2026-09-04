@@ -6,6 +6,7 @@ import TipTapEditor from "./tiptap/TipTapEditor";
 import ImagePicker from "./ImagePicker";
 import ArtworkPdfUploader from "./ArtworkPdfUploader";
 import GalleryUploader, { type GalleryItem } from "./GalleryUploader";
+import { DESIGN_TOOLS } from "@/lib/tools";
 import type { Project } from "@/lib/types";
 
 interface Props {
@@ -40,6 +41,9 @@ export default function ProjectForm({ initial, isEdit = false }: Props) {
   const [deliverables, setDeliverables] = useState(listToText(initial?.deliverables));
   const [platform, setPlatform] = useState<string[]>(initial?.platform ?? []);
   const [technologies, setTechnologies] = useState(listToText(initial?.technologies));
+  const [designTools, setDesignTools] = useState<string[]>(
+    initial?.project_type === "design" ? (initial?.technologies ?? []) : [],
+  );
   const [actions, setActions] = useState<{ label: string; url: string }[]>(initial?.actions ?? []);
   const [showcase, setShowcase] = useState(initial?.showcase ?? "");
   const [article, setArticle] = useState(initial?.article ?? "");
@@ -129,7 +133,8 @@ export default function ProjectForm({ initial, isEdit = false }: Props) {
         year,
         deliverables: splitList(deliverables),
         platform: platform.map((p) => p.trim()).filter(Boolean),
-        technologies: splitList(technologies),
+      technologies:
+        projectType === "design" ? designTools : splitList(technologies),
         actions: actions
           .map((a) => ({ label: a.label.trim(), url: a.url.trim() }))
           .filter((a) => a.label || a.url),
@@ -264,8 +269,52 @@ export default function ProjectForm({ initial, isEdit = false }: Props) {
           <input className={inputCls} value={deliverables} onChange={(e) => setDeliverables(e.target.value)} />
         </div>
         <div>
-          <label className={labelCls}>Technologies (pisahkan dgn koma)</label>
-          <input className={inputCls} value={technologies} onChange={(e) => setTechnologies(e.target.value)} />
+          {projectType === "design" ? (
+            <>
+              <label className={labelCls}>Tools</label>
+              <p className="mt-1 mb-2 text-xs text-neutral-500">Pilih tools yang dipakai.</p>
+              <div className="flex flex-wrap gap-2">
+                {DESIGN_TOOLS.map((t) => {
+                  const active = designTools.includes(t.name);
+                  return (
+                    <button
+                      key={t.name}
+                      type="button"
+                      onClick={() =>
+                        setDesignTools((prev) =>
+                          active
+                            ? prev.filter((x) => x !== t.name)
+                            : [...prev, t.name],
+                        )
+                      }
+                      className={`inline-flex items-center gap-2 rounded-md border px-2 py-1.5 text-sm transition-colors ${
+                        active
+                          ? "border-white bg-white/10 text-white"
+                          : "border-neutral-700 text-neutral-300 hover:bg-neutral-800"
+                      }`}
+                    >
+                      <span
+                        className="flex h-6 w-6 shrink-0 items-center justify-center rounded text-[11px] font-bold uppercase"
+                        style={{ color: t.color, backgroundColor: `${t.color}22` }}
+                      >
+                        {t.short}
+                      </span>
+                      {t.name}
+                    </button>
+                  );
+                })}
+              </div>
+            </>
+          ) : (
+            <>
+              <label className={labelCls}>Technologies (pisahkan dgn koma)</label>
+              <input
+                className={inputCls}
+                value={technologies}
+                onChange={(e) => setTechnologies(e.target.value)}
+              />
+            </>
+          )}
         </div>
 
         <div className="sm:col-span-2">
@@ -323,15 +372,24 @@ export default function ProjectForm({ initial, isEdit = false }: Props) {
 
       <GalleryUploader items={gallery} onChange={setGallery} pending={pendingRef} />
 
-      <div>
-        <label className={labelCls}>Showcase</label>
-        <TipTapEditor value={showcase} onChange={setShowcase} />
-      </div>
+      {projectType === "design" ? (
+        <div>
+          <label className={labelCls}>About</label>
+          <TipTapEditor value={article} onChange={setArticle} />
+        </div>
+      ) : (
+        <>
+          <div>
+            <label className={labelCls}>Showcase</label>
+            <TipTapEditor value={showcase} onChange={setShowcase} />
+          </div>
 
-      <div>
-        <label className={labelCls}>Article</label>
-        <TipTapEditor value={article} onChange={setArticle} />
-      </div>
+          <div>
+            <label className={labelCls}>Article</label>
+            <TipTapEditor value={article} onChange={setArticle} />
+          </div>
+        </>
+      )}
 
       <label className="flex items-center gap-2 text-sm text-neutral-300">
         <input
