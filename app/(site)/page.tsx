@@ -7,12 +7,17 @@ import WorkItem from "@/components/WorkItem";
 import ProductPanel from "@/components/ProductPanel";
 import Button from "@/components/Button";
 import ProjectsCarousel from "@/components/ProjectsCarousel";
-import { getPublishedProjects } from "@/lib/projects";
+import {
+  getPublishedSoftwareProjects,
+  getPublishedDesignProjects,
+} from "@/lib/projects";
 
 export const dynamic = "force-dynamic";
 
 export default async function Home() {
-  const projects = await getPublishedProjects();
+  const softwareProjects = await getPublishedSoftwareProjects();
+  const designProjects = await getPublishedDesignProjects();
+  const totalProjects = softwareProjects.length + designProjects.length;
 
   return (
     <>
@@ -28,7 +33,7 @@ export default async function Home() {
             <div className="flex flex-wrap gap-x-10 sm:gap-x-12 gap-y-8 mt-12 sm:mt-16">
               <Stat value="3+" label="Years of experience" />
               <Stat value="4" label="Companies" />
-              <Stat value={`${projects.length}+`} label="Projects" />
+              <Stat value={`${totalProjects}+`} label="Projects" />
             </div>
           </div>
           <div className="col-span-2" data-aos="fade-left">
@@ -57,7 +62,23 @@ export default async function Home() {
         </Container>
       </section>
 
-      <ProjectsCarousel projects={projects} />
+      {/* Software project row */}
+      <ProjectsCarousel
+        projects={softwareProjects}
+        title="Featured Work"
+        id="projects"
+        className="bg-black border-t border-neutral-800/80"
+        empty="Belum ada project software."
+      />
+
+      {/* Design (packaging) project row — visually distinct from software */}
+      <ProjectsCarousel
+        projects={designProjects}
+        title="Packaging Design"
+        id="design-projects"
+        className="bg-neutral-950 border-t border-neutral-800/80"
+        empty="Belum ada project desain."
+      />
 
       {/* Feature Banner (full-bleed) */}
       <section className="relative w-full min-h-[70vh] flex items-center overflow-hidden border-t border-neutral-800/80">

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import TipTapEditor from "./tiptap/TipTapEditor";
 import ImagePicker from "./ImagePicker";
+import ArtworkPdfUploader from "./ArtworkPdfUploader";
 import GalleryUploader, { type GalleryItem } from "./GalleryUploader";
 import type { Project } from "@/lib/types";
 
@@ -44,6 +45,11 @@ export default function ProjectForm({ initial, isEdit = false }: Props) {
   const [article, setArticle] = useState(initial?.article ?? "");
   const [heroImage, setHeroImage] = useState<string | null>(initial?.hero_image ?? null);
   const [cardImage, setCardImage] = useState<string | null>(initial?.card_image ?? null);
+  const [projectType, setProjectType] = useState<"software" | "design">(
+    initial?.project_type ?? "software",
+  );
+  const [pacdoraUrl, setPacdoraUrl] = useState(initial?.pacdora_url ?? "");
+  const [artworkPdf, setArtworkPdf] = useState<string | null>(initial?.artwork_pdf ?? null);
   const [gallery, setGallery] = useState<GalleryItem[]>(
     initial?.galleries?.map((g) => ({ media: g.media, media_type: g.media_type })) ?? [],
   );
@@ -94,6 +100,9 @@ export default function ProjectForm({ initial, isEdit = false }: Props) {
       article,
       hero_image: heroImage,
       card_image: cardImage,
+      project_type: projectType,
+      pacdora_url: pacdoraUrl.trim() || null,
+      artwork_pdf: artworkPdf,
       gallery: gallery.map((g) => g.media),
       published,
     };
@@ -118,8 +127,55 @@ export default function ProjectForm({ initial, isEdit = false }: Props) {
 
   return (
     <form onSubmit={onSubmit} className="space-y-8">
-      {/* Hero image — full width, hero ratio (16:8) */}
-      <ImagePicker label="Gambar Hero (16:8)" value={heroImage} onChange={setHeroImage} aspect="aspect-[2/1]" />
+      {/* Project type */}
+      <div>
+        <label className={labelCls}>Tipe project</label>
+        <div className="mt-1 flex flex-wrap gap-2">
+          {(["software", "design"] as const).map((t) => {
+            const active = projectType === t;
+            return (
+              <button
+                key={t}
+                type="button"
+                onClick={() => setProjectType(t)}
+                className={`rounded border px-4 py-2 text-sm transition-colors ${
+                  active
+                    ? "border-white bg-white text-black"
+                    : "border-neutral-700 text-neutral-300 hover:bg-neutral-800"
+                }`}
+              >
+                {t === "software" ? "Software" : "Design (Packaging)"}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      {projectType === "software" ? (
+        /* Software: hero image */
+        <ImagePicker label="Gambar Hero (16:8)" value={heroImage} onChange={setHeroImage} aspect="aspect-[2/1]" />
+      ) : (
+        /* Design: Pacdora embed + private artwork PDF instead of hero */
+        <div className="space-y-6">
+          <div>
+            <label className={labelCls}>Pacdora embed URL</label>
+            <input
+              className={inputCls}
+              value={pacdoraUrl}
+              onChange={(e) => setPacdoraUrl(e.target.value)}
+              placeholder="https://www.pacdora.com/… (link embed preview 360°)"
+            />
+            <p className="mt-1 text-xs text-neutral-500">
+              Salin link embed/iframe Pacdora (tanpa &lt;iframe&gt;, cukup URL src-nya).
+            </p>
+          </div>
+          <ArtworkPdfUploader
+            label="Artwork PDF (ditampilkan sebagai canvas, tidak bisa diunduh)"
+            value={artworkPdf}
+            onChange={setArtworkPdf}
+          />
+        </div>
+      )}
 
       {/* Card image — card ratio (16:9) */}
       <ImagePicker label="Gambar Card (16:9)" value={cardImage} onChange={setCardImage} aspect="aspect-video" />

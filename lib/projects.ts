@@ -2,7 +2,7 @@ import { supabase } from "./supabase";
 import type { Project, ProjectGallery } from "./types";
 
 const SELECT =
-  "id,title,description,slug,work_for,year,deliverables,platform,technologies,actions,showcase,article,hero_image,card_image,published,created_at,updated_at";
+  "id,title,description,slug,work_for,year,deliverables,platform,technologies,actions,showcase,article,hero_image,card_image,project_type,pacdora_url,artwork_pdf,published,created_at,updated_at";
 
 /** Normalize a value that may be an array, a JSON-encoded string, or null. */
 function parseList(value: unknown): string[] | null {
@@ -29,6 +29,9 @@ function mapRow(row: any): Project {
     platform: parseList(row.platform),
     technologies: parseList(row.technologies),
     actions: row.actions ?? null,
+    project_type: row.project_type === "design" ? "design" : "software",
+    pacdora_url: row.pacdora_url ?? null,
+    artwork_pdf: row.artwork_pdf ?? null,
     published: !!row.published,
   };
 }
@@ -82,4 +85,26 @@ export async function getAllProjects(): Promise<Project[]> {
 
   if (error) throw error;
   return (data ?? []).map(mapRow);
+}
+
+async function publishedByType(type: "software" | "design"): Promise<Project[]> {
+  const { data, error } = await supabase
+    .from("projects")
+    .select(SELECT)
+    .eq("published", true)
+    .eq("project_type", type)
+    .order("year", { ascending: false });
+
+  if (error) throw error;
+  return (data ?? []).map(mapRow);
+}
+
+/** Published software projects (for the home "software" row). */
+export async function getPublishedSoftwareProjects(): Promise<Project[]> {
+  return publishedByType("software");
+}
+
+/** Published design projects (for the home "design" row). */
+export async function getPublishedDesignProjects(): Promise<Project[]> {
+  return publishedByType("design");
 }

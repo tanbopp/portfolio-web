@@ -26,6 +26,12 @@ export interface Project {
   article: string | null;
   hero_image: string | null;
   card_image: string | null;
+  /** "software" (default) or "design" (packaging). */
+  project_type: "software" | "design";
+  /** Pacdora 360° packaging embed URL (design projects). */
+  pacdora_url: string | null;
+  /** Path of the private artwork PDF (design projects). */
+  artwork_pdf: string | null;
   published: boolean;
   created_at: string;
   updated_at: string;

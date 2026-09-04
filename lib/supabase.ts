@@ -13,6 +13,14 @@ if (!supabaseUrl || !supabaseAnonKey) {
 export const STORAGE_BUCKET = "projects";
 
 /**
+ * Private storage bucket for artwork PDFs. Files here are never served via a
+ * public URL — they are only streamed through the /api/artwork/[file] proxy
+ * (with anti-download headers) so visitors can view them but not fetch a raw
+ * shareable link.
+ */
+export const ARTWORK_BUCKET = "artwork";
+
+/**
  * Resolve a stored media path to a public URL.
  * - Absolute URLs are returned as-is.
  * - DB paths look like "projects/<folder>/<file>" (Laravel legacy format);

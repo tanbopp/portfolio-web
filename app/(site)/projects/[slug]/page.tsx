@@ -3,6 +3,8 @@ import Container from "@/components/Container";
 import SectionHeading from "@/components/SectionHeading";
 import Button from "@/components/Button";
 import RichContent from "@/components/RichContent";
+import PacdoraEmbed from "@/components/PacdoraEmbed";
+import ArtworkViewer from "@/components/ArtworkViewer";
 import { getProjectBySlug } from "@/lib/projects";
 import { storageUrl } from "@/lib/supabase";
 
@@ -47,13 +49,34 @@ export default async function ProjectPage({
         </Container>
       </section>
 
-      {/* Hero */}
-      <section className="relative w-full aspect-[16/8] overflow-hidden">
-        {heroSrc && (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img src={heroSrc} alt={project.title} className="absolute inset-0 h-full w-full object-cover" />
-        )}
-      </section>
+      {/* Media: design projects swap the hero for a Pacdora 360° preview + artwork PDF */}
+      {project.project_type === "design" ? (
+        <>
+          {project.pacdora_url && (
+            <section className="w-full py-8">
+              <Container>
+                <PacdoraEmbed url={project.pacdora_url} title={`${project.title} — preview 360°`} />
+              </Container>
+            </section>
+          )}
+
+          {project.artwork_pdf && (
+            <section className="w-full border-t border-neutral-800/80 py-8">
+              <Container>
+                <SectionHeading className="mb-2 text-3xl sm:text-4xl">Artwork</SectionHeading>
+                <ArtworkViewer file={project.artwork_pdf} />
+              </Container>
+            </section>
+          )}
+        </>
+      ) : (
+        <section className="relative w-full aspect-[16/8] overflow-hidden">
+          {heroSrc && (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img src={heroSrc} alt={project.title} className="absolute inset-0 h-full w-full object-cover" />
+          )}
+        </section>
+      )}
 
       {/* Meta + actions */}
       <section className="w-full py-8">

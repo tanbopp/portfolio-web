@@ -8,7 +8,19 @@ import ProjectCard from "./ProjectCard";
 import { storageUrl } from "@/lib/supabase";
 import type { Project } from "@/lib/types";
 
-export default function ProjectsCarousel({ projects }: { projects: Project[] }) {
+export default function ProjectsCarousel({
+  projects,
+  title = "Featured Work",
+  id = "projects",
+  className = "bg-black",
+  empty = "Belum ada project untuk ditampilkan.",
+}: {
+  projects: Project[];
+  title?: string;
+  id?: string;
+  className?: string;
+  empty?: string;
+}) {
   const trackRef = useRef<HTMLDivElement>(null);
 
   const scrollBy = (dir: number) => {
@@ -16,11 +28,11 @@ export default function ProjectsCarousel({ projects }: { projects: Project[] }) 
   };
 
   return (
-    <section id="projects" className="w-full bg-black py-20 overflow-hidden">
+    <section id={id} className={`w-full ${className} py-20 overflow-hidden`}>
       <Container className="mb-12">
         <div className="flex flex-wrap items-end justify-between gap-6" data-aos="fade-up">
           <div>
-            <SectionHeading className="text-3xl sm:text-5xl">Featured Work</SectionHeading>
+            <SectionHeading className="text-3xl sm:text-5xl">{title}</SectionHeading>
           </div>
           <div className="flex items-center gap-3">
             <IconButton icon="chevron_left" ariaLabel="Sebelumnya" onClick={() => scrollBy(-1)} />
@@ -39,7 +51,7 @@ export default function ProjectsCarousel({ projects }: { projects: Project[] }) 
           className="flex gap-6 overflow-x-auto scroll-smooth snap-x"
         >
           {projects.length === 0 ? (
-            <p className="px-8 text-neutral-400">Belum ada project untuk ditampilkan.</p>
+            <p className="px-8 text-neutral-400">{empty}</p>
           ) : (
             projects.map((project) => (
               <ProjectCard

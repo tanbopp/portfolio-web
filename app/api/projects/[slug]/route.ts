@@ -46,6 +46,9 @@ export async function PUT(
       article: body.article ?? null,
       hero_image: body.hero_image ?? null,
       card_image: body.card_image ?? null,
+      project_type: body.project_type === "design" ? "design" : "software",
+      pacdora_url: body.pacdora_url ?? null,
+      artwork_pdf: body.artwork_pdf ?? null,
       published: !!body.published,
     })
     .eq("slug", oldSlug)

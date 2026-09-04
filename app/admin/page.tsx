@@ -26,7 +26,18 @@ export default async function AdminDashboard() {
               className="flex items-center justify-between rounded-md border border-neutral-800 bg-neutral-950 px-4 py-3"
             >
               <div>
-                <p className="font-medium">{p.title}</p>
+                <p className="flex items-center gap-2 font-medium">
+                  {p.title}
+                  <span
+                    className={
+                      p.project_type === "design"
+                        ? "rounded-full border border-neutral-600 px-2 py-0.5 text-[10px] uppercase tracking-wider text-neutral-300"
+                        : "rounded-full border border-neutral-800 px-2 py-0.5 text-[10px] uppercase tracking-wider text-neutral-600"
+                    }
+                  >
+                    {p.project_type === "design" ? "Design" : "Software"}
+                  </span>
+                </p>
                 <p className="text-xs text-neutral-500">
                   {p.slug} · {p.published ? "published" : "draft"}
                 </p>
