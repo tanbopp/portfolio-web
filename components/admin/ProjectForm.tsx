@@ -151,11 +151,20 @@ export default function ProjectForm({ initial, isEdit = false }: Props) {
         </div>
       </div>
 
-      {projectType === "software" ? (
-        /* Software: hero image */
-        <ImagePicker label="Gambar Hero (16:8)" value={heroImage} onChange={setHeroImage} aspect="aspect-[2/1]" />
-      ) : (
-        /* Design: Pacdora embed + private artwork PDF instead of hero */
+      {/* Cover / hero image (top media) */}
+      <ImagePicker
+        label={
+          projectType === "design"
+            ? "Foto utama / cover (untuk halaman project)"
+            : "Gambar Hero (16:8)"
+        }
+        value={heroImage}
+        onChange={setHeroImage}
+        aspect={projectType === "design" ? "aspect-[4/3]" : "aspect-[2/1]"}
+      />
+
+      {projectType === "design" && (
+        /* Design: Pacdora embed + private artwork PDF */
         <div className="space-y-6">
           <div>
             <label className={labelCls}>Pacdora embed URL</label>
@@ -170,7 +179,7 @@ export default function ProjectForm({ initial, isEdit = false }: Props) {
             </p>
           </div>
           <ArtworkPdfUploader
-            label="Artwork PDF (ditampilkan sebagai canvas, tidak bisa diunduh)"
+            label="Artwork PDF (ditampilkan sebagai viewer canvas)"
             value={artworkPdf}
             onChange={setArtworkPdf}
           />
